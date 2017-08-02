@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.amrayoub.eventyo.calenderFragment">
+
+    <com.harrywhewell.scrolldatepicker.DayScrollDatePicker
+        android:id="@+id/date_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:baseColor="@color/primary"
+        app:baseTextColor="@color/default_base_text"
+        app:selectedColor="@color/accent"
+        app:selectedTextColor="@color/primary"
+        app:showTitle="true"
+        app:showFullDate="true"
+
+        />
+    <ProgressBar
+        android:padding="156dp"
+        android:visibility="gone"
+        android:id="@+id/calender_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/calender_no_events"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=" No Events Yet"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:visibility="gone"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/calender_recycleriew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+ </LinearLayout>

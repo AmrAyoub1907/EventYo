@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">EventYo</string>
+    <string name="hello_blank_fragment">EventYo</string>
+    <string name="facebook_app_id">1341399529309943</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="fb_login_protocol_scheme">fb1341399529309943</string>
+    <string-array name="Category">
+        <item>Music</item>
+        <item>Entertainment</item>
+        <item>Technology</item>
+        <item>Business</item>
+        <item>Art</item>
+        <item>Community</item>
+        <item>Other</item>
+    </string-array>
+</resources>

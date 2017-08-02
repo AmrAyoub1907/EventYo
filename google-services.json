@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "774102613982",
+    "firebase_url": "https://eventyo-c3477.firebaseio.com",
+    "project_id": "eventyo-c3477",
+    "storage_bucket": "eventyo-c3477.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774102613982:android:3d65a762eae8e3f4",
+        "android_client_info": {
+          "package_name": "com.amrayoub.eventyo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774102613982-ic933djvabslmf5s50u2mqrfl956te71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amrayoub.eventyo",
+            "certificate_hash": "639c8c621cce20d40bcc440188fd48969bb2ec92"
+          }
+        },
+        {
+          "client_id": "774102613982-54d9h23fns81kf75q4ipebu4j692akt6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFe3_j1ZtnZf68AraA6ENO691IOQmlP0I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774102613982-54d9h23fns81kf75q4ipebu4j692akt6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

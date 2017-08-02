@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.amrayoub.eventyo.SearchPeoplefragment">
+
+    <ProgressBar
+        android:padding="156dp"
+        android:visibility="gone"
+        android:id="@+id/search_user_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/searh_user_no_users"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=" No Users Yet"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:visibility="gone"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_user">
+    </android.support.v7.widget.RecyclerView>
+
+</FrameLayout>
