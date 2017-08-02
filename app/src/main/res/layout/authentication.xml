@@ -193,7 +193,7 @@
         android:textStyle="bold"
         android:textSize="34sp"
         android:layout_gravity="bottom"
-        android:gravity="center_horizontal"
+        android:gravity="center_horizontal|bottom"
         android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

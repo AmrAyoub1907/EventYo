@@ -81,7 +81,7 @@
                     android:elevation="4dp"
                     android:padding="20dp"
                     android:singleLine="true"
-                    android:imeOptions="actionDone"
+                    android:imeOptions="actionNext"
                     android:hint="Event Title" />
                 <EditText
                     android:id="@+id/create_event_description"
@@ -92,21 +92,27 @@
                     android:background="#fff"
                     android:elevation="4dp"
                     android:padding="20dp"
-                    android:imeOptions="actionDone"
+                    android:imeOptions="actionNext"
                     android:singleLine="true"
                     android:hint="Event Description" />
-                <Spinner
-                    android:id="@+id/create_event_category"
-                    android:textSize="18sp"
+                <FrameLayout
+                    android:elevation="4dp"
+                    android:background="#fff"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="3dp"
-                    android:background="#fff"
-                    android:elevation="4dp"
                     android:padding="20dp"
-                    android:hint="Event Category" />
+                    android:layout_height="wrap_content">
+                    <Spinner
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:spinnerMode="dialog"
+                        style="@style/Widget.AppCompat.Spinner.Underlined"
+                        android:id="@+id/create_event_category"
+                        android:textSize="18sp"
+                        android:hint="Event Category" />
+                </FrameLayout>
                 <EditText
                     android:id="@+id/create_event_location"
                     android:textSize="18sp"
@@ -133,6 +139,7 @@
                     android:layout_weight="1"
                     android:id="@+id/create_event_date"
                     android:textSize="18sp"
+                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -157,6 +164,7 @@
                         android:layout_weight="1"
                         android:id="@+id/create_event_time"
                         android:textSize="18sp"
+                        android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#fff"
