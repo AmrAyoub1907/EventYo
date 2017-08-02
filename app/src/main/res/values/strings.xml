@@ -14,4 +14,20 @@
         <item>Community</item>
         <item>Other</item>
     </string-array>
+    <string name="Google_SignIn_Failed">Google+ sign in failed</string>
+    <string name="FirebaseAuthFailed">Authentication failed</string>
+    <string name="FirebaseAuthSucced">authentication succed</string>
+    <string name="EventObject_Intent_Key">EventObject</string>
+    <string name="Realtime_Firebase_Null_child_key">Null</string>
+    <string name="Going_Tab_Identifier_Key">Database</string>
+    <string name="Remove_Event_msg">Event Removed</string>
+    <string name="Save_Event_msg">Event Saved</string>
+    <string name="Firebase_database_user_path">Users</string>
+    <string name="UserObject_Intent_Key">UserObject</string>
+    <string name="Firebase_database_event_path">Events</string>
+    <string name="Category_Tab_Name">Category</string>
+    <string name="Calender_Tab_Name">Calender</string>
+    <string name="Going_Tab_Name">Going</string>
+    <string name="Search_Event_Tab_Name">Events</string>
+    <string name="Search_User_Tab_Name">People</string>
 </resources>

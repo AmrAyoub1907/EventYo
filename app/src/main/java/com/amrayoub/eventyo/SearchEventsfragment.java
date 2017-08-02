@@ -65,7 +65,7 @@ public class SearchEventsfragment extends Fragment {
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
                 Event_info event = myMiniEventsList.get(position);
-                intent.putExtra("EventObject",event);
+                intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 startActivity(intent);
             }
             @Override
@@ -73,14 +73,14 @@ public class SearchEventsfragment extends Fragment {
             }
         }));
         progressBar.setVisibility(View.VISIBLE);
-        mDatabase.child("Events").addListenerForSingleValueEvent(
+        mDatabase.child(getString(R.string.Firebase_database_event_path)).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //data will be available on dataSnapshot.getValue();
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                             for (DataSnapshot childpostSnapshot: postSnapshot.getChildren()){
-                                if(!childpostSnapshot.getKey().equals("Null")){
+                                if(!childpostSnapshot.getKey().equals(getString(R.string.Realtime_Firebase_Null_child_key))){
                                     Event_info event = childpostSnapshot.getValue(Event_info.class);
                                     myEventsList.add(event);
                                 }

@@ -166,7 +166,7 @@ public class myAccountActivity extends AppCompatActivity {
                                             edit_overview.getText().toString(),
                                             edit_job.getText().toString()
                                     );
-                                    mDatabase.child("Users").child(user_info.getmId()).setValue(user);
+                                    mDatabase.child(getString(R.string.Firebase_database_user_path)).child(user_info.getmId()).setValue(user);
                                     User_info_holder.setInput(user);
                                     mProgressDialog.dismiss();
                                     Toast.makeText(myAccountActivity.this, "User Profile Updated", Toast.LENGTH_SHORT).show();
@@ -194,7 +194,7 @@ public class myAccountActivity extends AppCompatActivity {
                             edit_overview.getText().toString(),
                             edit_job.getText().toString()
                     );
-                    mDatabase.child("Users").child(user_info.getmId()).setValue(user);
+                    mDatabase.child(getString(R.string.Firebase_database_user_path)).child(user_info.getmId()).setValue(user);
                     User_info_holder.setInput(user);
                     mProgressDialog.dismiss();
                     Toast.makeText(myAccountActivity.this, "User Profile Updated", Toast.LENGTH_SHORT).show();

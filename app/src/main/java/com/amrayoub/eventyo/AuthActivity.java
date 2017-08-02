@@ -158,7 +158,7 @@ public class AuthActivity extends AppCompatActivity {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
-                Toast.makeText(this, "Google+ sign in failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,  getString(R.string.Google_SignIn_Failed), Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -182,7 +182,7 @@ public class AuthActivity extends AppCompatActivity {
                     ,Birthday
                     ,""
                     ,"");
-            mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_user_path));
             ValueEventListener valueEventListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -220,7 +220,7 @@ public class AuthActivity extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
-                            Toast.makeText(AuthActivity.this,"AuthFailed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthActivity.this,getString(R.string.FirebaseAuthFailed), Toast.LENGTH_SHORT).show();
                         }else{
                             startActivity(new Intent(AuthActivity.this,MainActivity.class));
                         }
@@ -261,7 +261,7 @@ public class AuthActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(AuthActivity.this, "Authentication failed.",
+                            Toast.makeText(AuthActivity.this, getString(R.string.FirebaseAuthFailed),
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }
@@ -288,7 +288,7 @@ public class AuthActivity extends AppCompatActivity {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             LoginManager.getInstance().logOut();
-                            Toast.makeText(AuthActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthActivity.this, getString(R.string.FirebaseAuthFailed), Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }
 
@@ -309,9 +309,9 @@ public class AuthActivity extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(AuthActivity.this,"AuthFailed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthActivity.this,getString(R.string.FirebaseAuthFailed), Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(AuthActivity.this, "AuthSucceed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthActivity.this, getString(R.string.FirebaseAuthSucced), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -115,7 +115,7 @@ public class CreateEventActivity extends AppCompatActivity {
                                                 mTime.getText().toString(),
                                                 String.valueOf(uri)
                                         );
-                                        mDatabase.child("Events").child(mSection).child(id).setValue(event);
+                                        mDatabase.child(getString(R.string.Firebase_database_event_path)).child(mSection).child(id).setValue(event);
                                         Toast.makeText(CreateEventActivity.this, "Event Created", Toast.LENGTH_LONG).show();
                                         finish();
                                     }

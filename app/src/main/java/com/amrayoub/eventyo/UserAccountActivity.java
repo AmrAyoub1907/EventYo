@@ -26,7 +26,7 @@ public class UserAccountActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        user_info = (User_info) intent.getSerializableExtra("UserObject");
+        user_info = (User_info) intent.getSerializableExtra(getString(R.string.UserObject_Intent_Key));
 
         //initView
         name = (TextView) findViewById(R.id.user_Account_name);

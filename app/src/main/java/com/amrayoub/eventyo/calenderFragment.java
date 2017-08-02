@@ -81,7 +81,7 @@ public class calenderFragment extends Fragment {
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
                 Event_info event = myCalenderList.get(position);
-                intent.putExtra("EventObject",event);
+                intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 startActivity(intent);
             }
             @Override
@@ -106,7 +106,7 @@ public class calenderFragment extends Fragment {
                     textView.setVisibility(View.GONE);
                     rv.setVisibility(View.GONE);
 
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Events");
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_event_path));
                     ValueEventListener valueEventListener = new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -114,7 +114,7 @@ public class calenderFragment extends Fragment {
                             mainRecyclerViewAdapter.notifyDataSetChanged();
                             for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                                 for (DataSnapshot eventSnapshot : postSnapshot.getChildren()) {
-                                    if (!eventSnapshot.getKey().equals("Null")) {
+                                    if (!eventSnapshot.getKey().equals(getString(R.string.Realtime_Firebase_Null_child_key))) {
                                         Event_info event = eventSnapshot.getValue(Event_info.class);
                                         if(event.getmDate().equals(eventdate))
                                             myCalenderList.add(event);

@@ -66,7 +66,7 @@ public class SearchPeoplefragment extends Fragment {
                 //handle click event
                 Intent intent = new Intent(getActivity(),UserAccountActivity.class);
                 User_info user = myMiniUsersList.get(position);
-                intent.putExtra("UserObject",user);
+                intent.putExtra(getString(R.string.UserObject_Intent_Key),user);
                 startActivity(intent);
             }
             @Override
@@ -74,7 +74,7 @@ public class SearchPeoplefragment extends Fragment {
             }
         }));
         progressBar.setVisibility(View.VISIBLE);
-        mDatabase.child("Users").addListenerForSingleValueEvent(
+        mDatabase.child(getString(R.string.Firebase_database_user_path)).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

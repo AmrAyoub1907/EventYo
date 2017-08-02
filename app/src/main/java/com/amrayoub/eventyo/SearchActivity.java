@@ -73,8 +73,8 @@ public class SearchActivity extends AppCompatActivity{
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SearchEventsfragment(), "Events");
-        adapter.addFragment(new SearchPeoplefragment(), "People");
+        adapter.addFragment(new SearchEventsfragment(), getString(R.string.Search_Event_Tab_Name));
+        adapter.addFragment(new SearchPeoplefragment(), getString(R.string.Search_User_Tab_Name));
         viewPager.setAdapter(adapter);
     }
 

@@ -66,7 +66,7 @@ public class categoryFragment extends Fragment {
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
                 Event_info event = myCategoryList.get(position);
-                intent.putExtra("EventObject",event);
+                intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 startActivity(intent);
             }
             @Override
@@ -95,7 +95,7 @@ public class categoryFragment extends Fragment {
                 rv.setVisibility(View.GONE);
                 myCategoryList.clear();
                 mCategory = parent.getSelectedItem().toString();
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("Events").child(mCategory);
+                databaseReference = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_event_path)).child(mCategory);
                 ValueEventListener valueEventListener = new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -103,7 +103,7 @@ public class categoryFragment extends Fragment {
                         mainRecyclerViewAdapter.notifyDataSetChanged();
 
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                            if(!postSnapshot.getKey().equals("Null")){
+                            if(!postSnapshot.getKey().equals(getString(R.string.Realtime_Firebase_Null_child_key))){
                                 Event_info event = postSnapshot.getValue(Event_info.class);
                                 int day,month,year;
                                 String[] separated = event.getmDate().split("-");
@@ -112,6 +112,7 @@ public class categoryFragment extends Fragment {
                                 year= Integer.parseInt(separated[2]);
                                 if(day>=mDay && month>=mMonth && year>=mYear)
                                     myCategoryList.add(event);
+                                else postSnapshot.getRef().removeValue();
                             }
                         }
                         mainRecyclerViewAdapter.notifyDataSetChanged();

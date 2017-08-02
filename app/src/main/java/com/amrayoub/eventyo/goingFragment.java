@@ -52,8 +52,8 @@ public class goingFragment extends Fragment {
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
                 Event_info event = myGoingList.get(position);
-                intent.putExtra("EventObject",event);
-                intent.putExtra("Database",true);
+                intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
+                intent.putExtra(getString(R.string.Going_Tab_Identifier_Key),true);
                 startActivity(intent);
             }
             @Override

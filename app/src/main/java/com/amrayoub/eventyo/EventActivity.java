@@ -40,8 +40,8 @@ public class EventActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_event);
         Intent intent= getIntent();
-        event_info = (Event_info) intent.getSerializableExtra("EventObject");
-        hideuser = intent.getBooleanExtra("Database",false);
+        event_info = (Event_info) intent.getSerializableExtra(getString(R.string.EventObject_Intent_Key));
+        hideuser = intent.getBooleanExtra(getString(R.string.Going_Tab_Identifier_Key),false);
         database = checkavailable(event_info.getmId());
         Toolbar myChildToolbar = (Toolbar) findViewById(R.id.details_event_toolbar);
         setSupportActionBar(myChildToolbar);
@@ -95,12 +95,12 @@ public class EventActivity extends AppCompatActivity {
             database=false;
             saveEvent.setText("Going");
             db.deleteEvent(event_info);
-            Toast.makeText(this, "Event Removed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Remove_Event_msg), Toast.LENGTH_SHORT).show();
 
         }else{
             saveEvent.setText("Not Going");
             db.addEvent(event_info);
-            Toast.makeText(this, "Event Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Save_Event_msg), Toast.LENGTH_SHORT).show();
             database = true;
         }
         //save event
@@ -108,13 +108,13 @@ public class EventActivity extends AppCompatActivity {
 
     public void openuserInfo(View view) {
         //open user activity
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_user_path));
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User_info user = dataSnapshot.child(event_info.getmUserId()).getValue(User_info.class);
                 Intent intent = new Intent(EventActivity.this,UserAccountActivity.class);
-                intent.putExtra("UserObject",user);
+                intent.putExtra(getString(R.string.UserObject_Intent_Key),user);
                 startActivity(intent);
             }
             @Override

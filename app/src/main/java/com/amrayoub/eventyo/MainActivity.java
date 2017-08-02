@@ -83,25 +83,25 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setupTabIcons() {
         TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabOne.setText("Category");
+        tabOne.setText(getString(R.string.Category_Tab_Name));
         tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_public, 0, 0);
         tabLayout.getTabAt(0).setCustomView(tabOne);
 
         TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabTwo.setText("Calender");
+        tabTwo.setText(getString(R.string.Calender_Tab_Name));
         tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_event, 0, 0);
         tabLayout.getTabAt(1).setCustomView(tabTwo);
 
         TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabThree.setText("Going");
+        tabThree.setText(getString(R.string.Going_Tab_Name));
         tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_favorite, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabThree);
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new categoryFragment(), "Category");
-        adapter.addFragment(new calenderFragment(), "Calender");
-        adapter.addFragment(new goingFragment(), "Going");
+        adapter.addFragment(new categoryFragment(), getString(R.string.Category_Tab_Name));
+        adapter.addFragment(new calenderFragment(), getString(R.string.Calender_Tab_Name));
+        adapter.addFragment(new goingFragment(), getString(R.string.Going_Tab_Name));
         viewPager.setAdapter(adapter);
     }
     public void createEvent(View view) {
