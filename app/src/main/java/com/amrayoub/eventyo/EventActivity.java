@@ -1,8 +1,7 @@
 package com.amrayoub.eventyo;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.annotation.NonNull;
+import android.graphics.Color;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,29 +14,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class EventActivity extends AppCompatActivity {
     private static final String TAG = "EventActivity";
 
     ImageView event_photo;
-    TextView event_category,event_description,event_location,event_date,event_time;
+    TextView event_category,event_description,event_location,event_date,event_time,userName;
     Button saveEvent;
     Event_info event_info;
-    Boolean database=false;
+    Boolean database=false,hideuser=false;
     CollapsingToolbarLayout collapsingToolbarLayout;
 
     private DatabaseReference mDatabase;
-    User_info user_info;
 
 
     @Override
@@ -47,8 +41,8 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
         Intent intent= getIntent();
         event_info = (Event_info) intent.getSerializableExtra("EventObject");
-        database = intent.getBooleanExtra("Database",false);
-
+        hideuser = intent.getBooleanExtra("Database",false);
+        database = checkavailable(event_info.getmId());
         Toolbar myChildToolbar = (Toolbar) findViewById(R.id.details_event_toolbar);
         setSupportActionBar(myChildToolbar);
         // Get a support ActionBar corresponding to this toolbar
@@ -64,6 +58,11 @@ public class EventActivity extends AppCompatActivity {
 
     }
 
+    private Boolean checkavailable(String id) {
+        DatabaseHandler db = new DatabaseHandler(this);
+        return db.getEvent(id);
+    }
+
     private void init() {
         event_description = (TextView) findViewById(R.id.details_event_description);
         event_location= (TextView) findViewById(R.id.details_event_location);
@@ -71,6 +70,7 @@ public class EventActivity extends AppCompatActivity {
         event_time= (TextView) findViewById(R.id.details_event_time);
         event_category = (TextView) findViewById(R.id.details_event_category);
         event_photo = (ImageView) findViewById(R.id.details_event_photo);
+        userName = (TextView) findViewById(R.id.details_event_user);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.details_event_collapsing_toolbar);
         saveEvent = (Button) findViewById(R.id.details_button_saveEvent);
         if(database){
@@ -81,8 +81,13 @@ public class EventActivity extends AppCompatActivity {
         event_category.setText(event_info.getmCategory());
         event_date.setText(event_info.getmDate());
         event_time.setText(event_info.getmTime());
+        userName.setText(event_info.getmUserName());
         event_location.setText(event_info.getmLocation());
-        collapsingToolbarLayout.setTitle(event_info.getmTilte());
+        collapsingToolbarLayout.setTitle(event_info.getmTitle());
+        if (hideuser) {
+            userName.setClickable(false);
+            userName.setTextColor(Color.BLACK);
+        }
     }
     public void details_event_going(View view) {
         DatabaseHandler db = new DatabaseHandler(this);

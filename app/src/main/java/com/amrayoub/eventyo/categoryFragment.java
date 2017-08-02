@@ -24,6 +24,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class categoryFragment extends Fragment {
     private static final String TAG = "categoryFragment";
@@ -78,6 +79,11 @@ public class categoryFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
+        Calendar c = Calendar.getInstance();
+        final int mYear = c.get(Calendar.YEAR);
+        final int mMonth = c.get(Calendar.MONTH)+1;
+        final int mDay = c.get(Calendar.DAY_OF_MONTH);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Category, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(adapter);
@@ -99,8 +105,13 @@ public class categoryFragment extends Fragment {
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                             if(!postSnapshot.getKey().equals("Null")){
                                 Event_info event = postSnapshot.getValue(Event_info.class);
-
-                                myCategoryList.add(event);
+                                int day,month,year;
+                                String[] separated = event.getmDate().split("-");
+                                day= Integer.parseInt(separated[0]);
+                                month= Integer.parseInt(separated[1]);
+                                year= Integer.parseInt(separated[2]);
+                                if(day>=mDay && month>=mMonth && year>=mYear)
+                                    myCategoryList.add(event);
                             }
                         }
                         mainRecyclerViewAdapter.notifyDataSetChanged();

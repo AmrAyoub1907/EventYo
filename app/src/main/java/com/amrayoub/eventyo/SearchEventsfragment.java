@@ -3,7 +3,6 @@ package com.amrayoub.eventyo;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -18,9 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -114,7 +111,7 @@ public class SearchEventsfragment extends Fragment {
                 myMiniEventsList.clear();
                 searchEventRecyclerViewAdapter.notifyDataSetChanged();
                 for (int i=0;i<myEventsList.size();i++){
-                    if(myEventsList.get(i).getmTilte().contains(query))
+                    if(myEventsList.get(i).getmTitle().contains(query))
                         myMiniEventsList.add(myEventsList.get(i));
                 }
                 searchEventRecyclerViewAdapter.notifyDataSetChanged();
@@ -126,7 +123,7 @@ public class SearchEventsfragment extends Fragment {
                 myMiniEventsList.clear();
                 searchEventRecyclerViewAdapter.notifyDataSetChanged();
                 for (int i=0;i<myEventsList.size();i++){
-                    if(myEventsList.get(i).getmTilte().contains(newText))
+                    if(myEventsList.get(i).getmTitle().contains(newText))
                         myMiniEventsList.add(myEventsList.get(i));
                 }
                 searchEventRecyclerViewAdapter.notifyDataSetChanged();

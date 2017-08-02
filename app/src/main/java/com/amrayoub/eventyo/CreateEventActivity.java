@@ -106,6 +106,7 @@ public class CreateEventActivity extends AppCompatActivity {
                                         Event_info event = new Event_info(
                                                 id,
                                                 user.getUid(),
+                                                user.getDisplayName(),
                                                 mTitle.getText().toString(),
                                                 mSection,
                                                 mDescription.getText().toString(),

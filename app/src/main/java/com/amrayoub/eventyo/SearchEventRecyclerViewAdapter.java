@@ -44,7 +44,7 @@ public class SearchEventRecyclerViewAdapter extends RecyclerView.Adapter<SearchE
     @Override
     public void onBindViewHolder(EventsViewHolder holder, int position) {
         holder.date.setText(myEvents.get(position).getmDate());
-        holder.title.setText(myEvents.get(position).getmTilte());
+        holder.title.setText(myEvents.get(position).getmTitle());
         Picasso.with(mContext).load(myEvents.get(position).getmPhotoUrl()).into(holder.photo);
     }
 

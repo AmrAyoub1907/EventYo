@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Amr Ayoub on 7/31/2017.
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class DatabaseHandler extends SQLiteOpenHelper {
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // Database Name
     private static final String DATABASE_NAME = "GoingEvents";
@@ -26,6 +27,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Contacts Table Columns names
     private static final String KEY_ID = "event_id";
     private static final String KEY_USERID = "host_id";
+    private static final String KEY_USERNAME = "host_name";
     private static final String KEY_TITLE = "title";
     private static final String KEY_CATEGORY = "category";
     private static final String KEY_DESCRIPTION = "description";
@@ -47,6 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + TABLE_CONTACTS + "("
                 + KEY_ID + " TEXT PRIMARY KEY,"
                 + KEY_USERID + " TEXT,"
+                + KEY_USERNAME + " TEXT,"
                 + KEY_TITLE + " TEXT,"
                 + KEY_CATEGORY + " TEXT,"
                 + KEY_DESCRIPTION + " TEXT,"
@@ -74,7 +77,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_ID, event_info.getmId()); // Event ID
         values.put(KEY_USERID, event_info.getmUserId()); // Event Host ID
-        values.put(KEY_TITLE, event_info.getmTilte()); // Event Title
+        values.put(KEY_USERNAME, event_info.getmUserName()); // Event Host Name
+        values.put(KEY_TITLE, event_info.getmTitle()); // Event Title
         values.put(KEY_CATEGORY, event_info.getmCategory()); // Event Category
         values.put(KEY_DESCRIPTION, event_info.getmDescription()); // Event Description
         values.put(KEY_LOCATION, event_info.getmLocation()); // Event Location
@@ -88,31 +92,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Getting single contact
-    public Event_info getEvent(int id) {
+    public Boolean getEvent(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
                         KEY_USERID, KEY_TITLE, KEY_CATEGORY,KEY_DESCRIPTION,KEY_LOCATION,KEY_DATE,KEY_TIME}, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
 
-        Event_info event_info = new Event_info(
-                cursor.getString(0),
-                cursor.getString(1),
-                cursor.getString(2),
-                cursor.getString(3),
-                cursor.getString(4),
-                cursor.getString(5),
-                cursor.getString(6),
-                cursor.getString(7),
-                cursor.getString(8));
-        // return event
-        return event_info;
+        if (cursor != null)
+            return true;
+        else return false;
     }
 
     // Getting All Contacts
     public ArrayList<Event_info> getAllEvents() {
+        Calendar c = Calendar.getInstance();
+        final int mYear = c.get(Calendar.YEAR);
+        final int mMonth = c.get(Calendar.MONTH)+1;
+        final int mDay = c.get(Calendar.DAY_OF_MONTH);
         ArrayList<Event_info> eventList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
@@ -132,10 +129,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         cursor.getString(5),
                         cursor.getString(6),
                         cursor.getString(7),
-                        cursor.getString(8)
+                        cursor.getString(8),
+                        cursor.getString(9)
                         );
                 // Adding contact to list
-                eventList.add(event_info);
+                int day,month,year;
+                String[] separated = event_info.getmDate().split("-");
+                day= Integer.parseInt(separated[0]);
+                month= Integer.parseInt(separated[1]);
+                year= Integer.parseInt(separated[2]);
+                if(day>=mDay && month>=mMonth && year>=mYear)
+                    eventList.add(event_info);
+                else
+                    deleteEvent(event_info);
+
             } while (cursor.moveToNext());
         }
 
@@ -160,7 +167,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_ID, event_info.getmId()); // Event ID
         values.put(KEY_USERID, event_info.getmUserId()); // Event Host ID
-        values.put(KEY_TITLE, event_info.getmTilte()); // Event Title
+        values.put(KEY_TITLE, event_info.getmTitle()); // Event Title
         values.put(KEY_CATEGORY, event_info.getmCategory()); // Event Category
         values.put(KEY_DESCRIPTION, event_info.getmDescription()); // Event Description
         values.put(KEY_LOCATION, event_info.getmLocation()); // Event Location

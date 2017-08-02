@@ -1,8 +1,6 @@
 package com.amrayoub.eventyo;
 
 import android.content.Context;
-import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -53,7 +49,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     @Override
     public void onBindViewHolder(final EventsViewHolder holder, int position) {
         holder.date.setText(myEvents.get(position).getmDate());
-        holder.title.setText(myEvents.get(position).getmTilte());
+        holder.title.setText(myEvents.get(position).getmTitle());
         Picasso.with(mContext).load(myEvents.get(position).getmPhotoUrl()).into(holder.photo);
     }
 
