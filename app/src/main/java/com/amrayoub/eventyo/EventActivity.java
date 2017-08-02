@@ -42,7 +42,6 @@ public class EventActivity extends AppCompatActivity {
         Intent intent= getIntent();
         event_info = (Event_info) intent.getSerializableExtra(getString(R.string.EventObject_Intent_Key));
         hideuser = intent.getBooleanExtra(getString(R.string.Going_Tab_Identifier_Key),false);
-        database = checkavailable(event_info.getmId());
         Toolbar myChildToolbar = (Toolbar) findViewById(R.id.details_event_toolbar);
         setSupportActionBar(myChildToolbar);
         // Get a support ActionBar corresponding to this toolbar
@@ -73,9 +72,6 @@ public class EventActivity extends AppCompatActivity {
         userName = (TextView) findViewById(R.id.details_event_user);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.details_event_collapsing_toolbar);
         saveEvent = (Button) findViewById(R.id.details_button_saveEvent);
-        if(database){
-            saveEvent.setText("Not Going");
-        }
         Picasso.with(getBaseContext()).load(event_info.getmPhotoUrl()).into(event_photo);
         event_description.setText(event_info.getmDescription());
         event_category.setText(event_info.getmCategory());
@@ -88,20 +84,29 @@ public class EventActivity extends AppCompatActivity {
             userName.setClickable(false);
             userName.setTextColor(Color.BLACK);
         }
+        database = checkavailable(event_info.getmId());
+        if(database == false){
+            saveEvent.setText("Going");
+        }
+        else{
+            saveEvent.setText("Not Going");
+        }
+
+
     }
     public void details_event_going(View view) {
         DatabaseHandler db = new DatabaseHandler(this);
-        if(database){
-            database=false;
-            saveEvent.setText("Going");
-            db.deleteEvent(event_info);
-            Toast.makeText(this, getString(R.string.Remove_Event_msg), Toast.LENGTH_SHORT).show();
-
-        }else{
+        if(!database){
             saveEvent.setText("Not Going");
             db.addEvent(event_info);
             Toast.makeText(this, getString(R.string.Save_Event_msg), Toast.LENGTH_SHORT).show();
             database = true;
+
+        }else{
+            database=false;
+            saveEvent.setText("Going");
+            db.deleteEvent(event_info);
+            Toast.makeText(this, getString(R.string.Remove_Event_msg), Toast.LENGTH_SHORT).show();
         }
         //save event
     }

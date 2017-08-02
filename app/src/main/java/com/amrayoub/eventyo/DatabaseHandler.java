@@ -99,7 +99,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         KEY_USERID, KEY_TITLE, KEY_CATEGORY,KEY_DESCRIPTION,KEY_LOCATION,KEY_DATE,KEY_TIME}, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
-        if (cursor != null)
+        if (cursor.getCount()!=0)
             return true;
         else return false;
     }

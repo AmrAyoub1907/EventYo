@@ -1,5 +1,6 @@
 package com.amrayoub.eventyo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ public class UserAccountActivity extends AppCompatActivity {
     User_info user_info;
     TextView name,email,phone,birthday,gender,job,overview;
     de.hdodenhof.circleimageview.CircleImageView photo;
+    private ProgressDialog mProgressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,14 @@ public class UserAccountActivity extends AppCompatActivity {
         setSupportActionBar(myChildToolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+
+
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Loading..");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setCancelable(false);
+
+        mProgressDialog.show();
 
         Intent intent = getIntent();
         user_info = (User_info) intent.getSerializableExtra(getString(R.string.UserObject_Intent_Key));
@@ -47,6 +58,7 @@ public class UserAccountActivity extends AppCompatActivity {
         job.setText(user_info.getmWorkinsgat());
         overview.setText(user_info.getmOverview());
         Picasso.with(this).load(user_info.getmPhoto()).into(photo);
+        mProgressDialog.dismiss();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

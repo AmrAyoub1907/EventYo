@@ -1,6 +1,7 @@
 package com.amrayoub.eventyo;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -57,6 +58,8 @@ public class CreateEventActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     StorageReference storage;
+    private ProgressDialog mProgressDialog;
+
 
 
     @Override
@@ -71,6 +74,10 @@ public class CreateEventActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Creating Event..");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setCancelable(false);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance().getReference();
@@ -90,6 +97,7 @@ public class CreateEventActivity extends AppCompatActivity {
             case R.id.create_event:
                 // User chose the "Settings" item, show the app settings UI...
                 if (chechallfeilds()) {
+                    mProgressDialog.show();
                     //push to firebase;
                     final String id = mDatabase.push().getKey();
                     final FirebaseUser user = mAuth.getCurrentUser();
@@ -116,6 +124,7 @@ public class CreateEventActivity extends AppCompatActivity {
                                                 String.valueOf(uri)
                                         );
                                         mDatabase.child(getString(R.string.Firebase_database_event_path)).child(mSection).child(id).setValue(event);
+                                        mProgressDialog.dismiss();
                                         Toast.makeText(CreateEventActivity.this, "Event Created", Toast.LENGTH_LONG).show();
                                         finish();
                                     }

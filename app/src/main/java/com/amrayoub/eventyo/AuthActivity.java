@@ -1,6 +1,7 @@
 package com.amrayoub.eventyo;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -63,6 +64,7 @@ public class AuthActivity extends AppCompatActivity {
     private String email,password,Name="",Photourl="",Email="",Birthday="",Gender="";
     private LoginButton loginButton;
     private DatabaseReference mDatabase;
+    private ProgressDialog mProgressDialog;
 
     User_info user_info;
     @Override
@@ -70,6 +72,10 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.authentication);
         setupWindowAnimations();
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("authenticating..");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setCancelable(false);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -82,6 +88,7 @@ public class AuthActivity extends AppCompatActivity {
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                mProgressDialog.show();
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
@@ -142,6 +149,7 @@ public class AuthActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mProgressDialog.show();
                 Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
@@ -206,10 +214,15 @@ public class AuthActivity extends AppCompatActivity {
     }
     public void signin(View view) {
         //Email & Password login
+
         EditText Email = (EditText) findViewById(R.id.email);
         email = Email.getText().toString();
         EditText Password = (EditText) findViewById(R.id.password);
         password = Password.getText().toString();
+        if(email.length() == 0 || password.length() == 0){
+            Toast.makeText(AuthActivity.this,"Pleas Fill Email/Password", Toast.LENGTH_SHORT).show();
+        }else{
+            mProgressDialog.show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -218,6 +231,7 @@ public class AuthActivity extends AppCompatActivity {
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
+                        mProgressDialog.dismiss();
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(AuthActivity.this,getString(R.string.FirebaseAuthFailed), Toast.LENGTH_SHORT).show();
@@ -226,6 +240,7 @@ public class AuthActivity extends AppCompatActivity {
                         }
                     }
                 });
+        }
     }
     public void create_account_view(View view) {
         LinearLayout signinview= (LinearLayout) findViewById(R.id.signin_view);
@@ -252,6 +267,7 @@ public class AuthActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        mProgressDialog.dismiss();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
@@ -277,6 +293,7 @@ public class AuthActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        mProgressDialog.dismiss();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
@@ -300,7 +317,11 @@ public class AuthActivity extends AppCompatActivity {
         EditText new_password = (EditText) findViewById(R.id.new_password);
         email = new_email.getText().toString();
         password = new_password.getText().toString();
-        mAuth.createUserWithEmailAndPassword(email, password)
+        if(email.length() == 0 || password.length() < 0){
+            Toast.makeText(AuthActivity.this,"Pleas Fill Email/Password", Toast.LENGTH_SHORT).show();
+        }else{
+            mProgressDialog.show();
+            mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -308,6 +329,7 @@ public class AuthActivity extends AppCompatActivity {
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
+                        mProgressDialog.dismiss();
                         if (!task.isSuccessful()) {
                             Toast.makeText(AuthActivity.this,getString(R.string.FirebaseAuthFailed), Toast.LENGTH_SHORT).show();
                         }else {
@@ -315,6 +337,7 @@ public class AuthActivity extends AppCompatActivity {
                         }
                     }
                 });
+        }
     }
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setupWindowAnimations() {
