@@ -71,7 +71,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Adding new contact
-    public void addEvent(Event_info event_info) {
+    public void addEvent(EventInfo event_info) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -105,12 +105,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Getting All Contacts
-    public ArrayList<Event_info> getAllEvents() {
+    public ArrayList<EventInfo> getAllEvents() {
         Calendar c = Calendar.getInstance();
         final int mYear = c.get(Calendar.YEAR);
         final int mMonth = c.get(Calendar.MONTH)+1;
         final int mDay = c.get(Calendar.DAY_OF_MONTH);
-        ArrayList<Event_info> eventList = new ArrayList<>();
+        ArrayList<EventInfo> eventList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 
@@ -120,7 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Event_info event_info = new Event_info(
+                EventInfo event_info = new EventInfo(
                         cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
@@ -161,7 +161,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Updating single contact
-    public int updateEvent(Event_info event_info) {
+    public int updateEvent(EventInfo event_info) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -180,7 +180,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Deleting single contact
-    public void deleteEvent(Event_info event_info) {
+    public void deleteEvent(EventInfo event_info) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
                 new String[] { String.valueOf(event_info.getmId()) });

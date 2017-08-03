@@ -18,10 +18,10 @@ import java.util.ArrayList;
  */
 
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.EventsViewHolder> {
-    ArrayList<Event_info> myEvents;
+    ArrayList<EventInfo> myEvents;
     Context mContext;
 
-    MainRecyclerViewAdapter(ArrayList<Event_info> myEvents,Context mContext){
+    MainRecyclerViewAdapter(ArrayList<EventInfo> myEvents, Context mContext){
         this.myEvents = myEvents;
         this.mContext=mContext;
     }
@@ -50,7 +50,10 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     public void onBindViewHolder(final EventsViewHolder holder, int position) {
         holder.date.setText(myEvents.get(position).getmDate());
         holder.title.setText(myEvents.get(position).getmTitle());
-        Picasso.with(mContext).load(myEvents.get(position).getmPhotoUrl()).into(holder.photo);
+        Picasso.with(mContext).load(myEvents.get(position).getmPhotoUrl())
+                .placeholder(R.drawable.event_pic)
+                .error(R.drawable.event_pic)
+                .into(holder.photo);
     }
 
     @Override

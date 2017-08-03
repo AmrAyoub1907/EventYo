@@ -6,13 +6,11 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,7 +35,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -75,7 +72,7 @@ public class CreateEventActivity extends AppCompatActivity {
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
         mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Creating Event..");
+        mProgressDialog.setMessage(getString(R.string.ProgressDialogEventCreatingMsg));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setCancelable(false);
 
@@ -102,48 +99,29 @@ public class CreateEventActivity extends AppCompatActivity {
                     final String id = mDatabase.push().getKey();
                     final FirebaseUser user = mAuth.getCurrentUser();
 
-
                     if (uri != null) {
-                        StorageReference path = storage.child("Photos").child(id);
-                        path.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                storage.child("Photos/"+id).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Event_info event = new Event_info(
-                                                id,
-                                                user.getUid(),
-                                                user.getDisplayName(),
-                                                mTitle.getText().toString(),
-                                                mSection,
-                                                mDescription.getText().toString(),
-                                                mLocation.getText().toString(),
-                                                mDate.getText().toString(),
-                                                mTime.getText().toString(),
-                                                String.valueOf(uri)
-                                        );
-                                        mDatabase.child(getString(R.string.Firebase_database_event_path)).child(mSection).child(id).setValue(event);
-                                        mProgressDialog.dismiss();
-                                        Toast.makeText(CreateEventActivity.this, "Event Created", Toast.LENGTH_LONG).show();
-                                        finish();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception exception) {
-                                        // Handle any errors
-                                    }
-                                });
-                            }
-                        });
+                        EventInfo event = new EventInfo(
+                                id,
+                                user.getUid(),
+                                user.getDisplayName(),
+                                mTitle.getText().toString(),
+                                mSection,
+                                mDescription.getText().toString(),
+                                mLocation.getText().toString(),
+                                mDate.getText().toString(),
+                                mTime.getText().toString(),
+                                String.valueOf(uri));
 
+                        Intent intent = new Intent(CreateEventActivity.this,CreateEventService.class);
+                        intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
+                        startService(intent);
+                        finish();
+                        Toast.makeText(getBaseContext(),getString(R.string.Event_Created_msg), Toast.LENGTH_SHORT).show();
                     }
-
                 } else {
-                    Toast.makeText(CreateEventActivity.this, "Please Fill all Fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateEventActivity.this,getString(R.string.Fill_Feilds_msg), Toast.LENGTH_SHORT).show();
                 }
                 return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -217,7 +195,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(CreateEventActivity.this, "Nothing Selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateEventActivity.this, getString(R.string.Nothing_Selected_msg), Toast.LENGTH_SHORT).show();
             }
         });
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(CreateEventActivity.this, R.array.Category, R.layout.spinner_item);

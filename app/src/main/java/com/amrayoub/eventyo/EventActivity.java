@@ -27,7 +27,7 @@ public class EventActivity extends AppCompatActivity {
     ImageView event_photo;
     TextView event_category,event_description,event_location,event_date,event_time,userName;
     Button saveEvent;
-    Event_info event_info;
+    EventInfo event_info;
     Boolean database=false,hideuser=false;
     CollapsingToolbarLayout collapsingToolbarLayout;
 
@@ -40,7 +40,7 @@ public class EventActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_event);
         Intent intent= getIntent();
-        event_info = (Event_info) intent.getSerializableExtra(getString(R.string.EventObject_Intent_Key));
+        event_info = (EventInfo) intent.getSerializableExtra(getString(R.string.EventObject_Intent_Key));
         hideuser = intent.getBooleanExtra(getString(R.string.Going_Tab_Identifier_Key),false);
         Toolbar myChildToolbar = (Toolbar) findViewById(R.id.details_event_toolbar);
         setSupportActionBar(myChildToolbar);
@@ -72,7 +72,12 @@ public class EventActivity extends AppCompatActivity {
         userName = (TextView) findViewById(R.id.details_event_user);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.details_event_collapsing_toolbar);
         saveEvent = (Button) findViewById(R.id.details_button_saveEvent);
-        Picasso.with(getBaseContext()).load(event_info.getmPhotoUrl()).into(event_photo);
+
+        Picasso.with(getBaseContext()).load(event_info.getmPhotoUrl())
+                .placeholder(R.drawable.event_pic)
+                .error(R.drawable.event_pic)
+                .into(event_photo);
+
         event_description.setText(event_info.getmDescription());
         event_category.setText(event_info.getmCategory());
         event_date.setText(event_info.getmDate());
@@ -86,25 +91,23 @@ public class EventActivity extends AppCompatActivity {
         }
         database = checkavailable(event_info.getmId());
         if(database == false){
-            saveEvent.setText("Going");
+            saveEvent.setText(getString(R.string.Event_Going_Button_Going));
         }
         else{
-            saveEvent.setText("Not Going");
+            saveEvent.setText(getString(R.string.Event_Going_Button_NotGoing));
         }
-
-
     }
     public void details_event_going(View view) {
         DatabaseHandler db = new DatabaseHandler(this);
         if(!database){
-            saveEvent.setText("Not Going");
+            saveEvent.setText(getString(R.string.Event_Going_Button_NotGoing));
             db.addEvent(event_info);
             Toast.makeText(this, getString(R.string.Save_Event_msg), Toast.LENGTH_SHORT).show();
             database = true;
 
         }else{
             database=false;
-            saveEvent.setText("Going");
+            saveEvent.setText(getString(R.string.Event_Going_Button_Going));
             db.deleteEvent(event_info);
             Toast.makeText(this, getString(R.string.Remove_Event_msg), Toast.LENGTH_SHORT).show();
         }
@@ -117,14 +120,14 @@ public class EventActivity extends AppCompatActivity {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User_info user = dataSnapshot.child(event_info.getmUserId()).getValue(User_info.class);
+                UserInfo user = dataSnapshot.child(event_info.getmUserId()).getValue(UserInfo.class);
                 Intent intent = new Intent(EventActivity.this,UserAccountActivity.class);
                 intent.putExtra(getString(R.string.UserObject_Intent_Key),user);
                 startActivity(intent);
             }
             @Override
             public void onCancelled(DatabaseError databaseError){
-                Log.d(TAG, "onCancelled:" + databaseError.getMessage());
+                Log.d(TAG, getString(R.string.FirebaseLogOnCancelld)+ databaseError.getMessage());
             }
         };
         mDatabase.addListenerForSingleValueEvent(valueEventListener);

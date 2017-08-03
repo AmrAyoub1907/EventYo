@@ -3,13 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.amrayoub.eventyo.categoryFragment">
+    tools:context="com.amrayoub.eventyo.CategoryFragment">
 
     <Spinner
+        android:contentDescription="@string/accessibility_ChooseEventCategory"
         style="@style/Widget.AppCompat.Spinner.Underlined"
         android:spinnerMode="dialog"
-        android:paddingStart="12dp"
-        android:paddingLeft="12dp"
+        android:paddingStart="@dimen/Margin_Padding_12dp"
         android:id="@+id/category_spinner"
         android:layout_width="match_parent"
         android:layout_height="56dp"/>
@@ -23,14 +23,14 @@
         android:id="@+id/no_events"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text=" No Events Yet"
+        android:text="No Events Yet"
         android:gravity="center"
         android:textSize="24sp"
         android:visibility="gone"
         />
     <android.support.v7.widget.RecyclerView
         android:visibility="gone"
-        android:padding="16dp"
+        android:padding="@dimen/activity_padding"
         android:id="@+id/category_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

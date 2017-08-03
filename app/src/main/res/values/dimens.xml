@@ -2,14 +2,24 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="toolbar_content_dimen">16dp</dimen>
     <dimen name="tab_max_width">264dp</dimen>
     <dimen name="tab_padding_bottom">16dp</dimen>
     <dimen name="tab_label">16sp</dimen>
     <dimen name="custom_tab_layout_height">72dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_press_translation_z">12dp</dimen>
+    <dimen name="Margin_Padding_12dp">12dp</dimen>
     <dimen name="appbar_elevation">4dp</dimen>
-    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="Info_margin">5dp</dimen>
+    <dimen name="Info_Collection_margin_Top">5dp</dimen>
+    <dimen name="Circular_Image_elevation">5dp</dimen>
+    <dimen name="Info_elevation">4dp</dimen>
+
+
 
     <!--
 Refer to App Widget Documentation for margin information

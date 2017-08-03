@@ -3,7 +3,6 @@ package com.amrayoub.eventyo;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -29,8 +28,8 @@ import java.util.ArrayList;
 
 public class SearchPeoplefragment extends Fragment {
     private DatabaseReference mDatabase;
-    ArrayList<User_info> myUsersList = new ArrayList<>();
-    ArrayList<User_info> myMiniUsersList = new ArrayList<>();
+    ArrayList<UserInfo> myUsersList = new ArrayList<>();
+    ArrayList<UserInfo> myMiniUsersList = new ArrayList<>();
     TextView textView;
     ProgressBar progressBar;
     RecyclerView rv;
@@ -65,7 +64,7 @@ public class SearchPeoplefragment extends Fragment {
                 //Toast.makeText(getActivity(), position+ " is selected successfully", Toast.LENGTH_SHORT).show();
                 //handle click event
                 Intent intent = new Intent(getActivity(),UserAccountActivity.class);
-                User_info user = myMiniUsersList.get(position);
+                UserInfo user = myMiniUsersList.get(position);
                 intent.putExtra(getString(R.string.UserObject_Intent_Key),user);
                 startActivity(intent);
             }
@@ -80,7 +79,7 @@ public class SearchPeoplefragment extends Fragment {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //data will be available on dataSnapshot.getValue();
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                            User_info user = postSnapshot.getValue(User_info.class);
+                            UserInfo user = postSnapshot.getValue(UserInfo.class);
                             myUsersList.add(user);
                         }
                         progressBar.setVisibility(View.GONE);
@@ -91,7 +90,6 @@ public class SearchPeoplefragment extends Fragment {
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Log.w("SearchEventsFragment", "getUser:onCancelled", databaseError.toException());
                     }
                 });
         return view;

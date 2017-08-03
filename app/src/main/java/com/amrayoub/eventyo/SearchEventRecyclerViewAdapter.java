@@ -17,10 +17,10 @@ import java.util.ArrayList;
  */
 
 public class SearchEventRecyclerViewAdapter extends RecyclerView.Adapter<SearchEventRecyclerViewAdapter.EventsViewHolder> {
-    ArrayList<Event_info> myEvents;
+    ArrayList<EventInfo> myEvents;
     Context mContext;
 
-    SearchEventRecyclerViewAdapter(ArrayList<Event_info> myEvents, Context mContext){
+    SearchEventRecyclerViewAdapter(ArrayList<EventInfo> myEvents, Context mContext){
         this.myEvents = myEvents;
         this.mContext=mContext;
     }
@@ -45,7 +45,10 @@ public class SearchEventRecyclerViewAdapter extends RecyclerView.Adapter<SearchE
     public void onBindViewHolder(EventsViewHolder holder, int position) {
         holder.date.setText(myEvents.get(position).getmDate());
         holder.title.setText(myEvents.get(position).getmTitle());
-        Picasso.with(mContext).load(myEvents.get(position).getmPhotoUrl()).into(holder.photo);
+        Picasso.with(mContext).load(myEvents.get(position).getmPhotoUrl())
+                .placeholder(R.drawable.event_pic)
+                .error(R.drawable.event_pic)
+                .into(holder.photo);
     }
 
     @Override

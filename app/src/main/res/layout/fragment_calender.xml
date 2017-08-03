@@ -4,10 +4,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="com.amrayoub.eventyo.calenderFragment">
+    android:padding="@dimen/activity_padding"
+    tools:context="com.amrayoub.eventyo.CalenderFragment">
 
     <com.harrywhewell.scrolldatepicker.DayScrollDatePicker
+        android:contentDescription="@string/accessibility_ChooseEventDate"
         android:id="@+id/date_picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +18,6 @@
         app:selectedTextColor="@color/primary"
         app:showTitle="true"
         app:showFullDate="true"
-
         />
     <ProgressBar
         android:padding="156dp"

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/activity_padding"
     tools:context="com.amrayoub.eventyo.SearchPeoplefragment">
 
     <ProgressBar
@@ -15,7 +15,7 @@
         android:id="@+id/searh_user_no_users"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text=" No Users Yet"
+        tools:text=" No Users Yet"
         android:gravity="center"
         android:textSize="24sp"
         android:visibility="gone"

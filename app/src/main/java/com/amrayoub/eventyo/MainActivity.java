@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.myAccount_button:
                 // User chose the "Settings" item, show the app settings UI...
-                startActivity(new Intent(MainActivity.this,myAccountActivity.class));
+                startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
                 return true;
 
             case R.id.signout_button:
@@ -99,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new categoryFragment(), getString(R.string.Category_Tab_Name));
-        adapter.addFragment(new calenderFragment(), getString(R.string.Calender_Tab_Name));
-        adapter.addFragment(new goingFragment(), getString(R.string.Going_Tab_Name));
+        adapter.addFragment(new CategoryFragment(), getString(R.string.Category_Tab_Name));
+        adapter.addFragment(new CalenderFragment(), getString(R.string.Calender_Tab_Name));
+        adapter.addFragment(new GoingFragment(), getString(R.string.Going_Tab_Name));
         viewPager.setAdapter(adapter);
     }
     public void createEvent(View view) {

@@ -12,9 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,17 +23,16 @@ import com.harrywhewell.scrolldatepicker.DayScrollDatePicker;
 import com.harrywhewell.scrolldatepicker.OnDateSelectedListener;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 
-public class calenderFragment extends Fragment {
+public class CalenderFragment extends Fragment {
 
     private static final String TAG = "CalenderFragment";
-    ArrayList<Event_info> myCalenderList = new ArrayList<>();
+    ArrayList<EventInfo> myCalenderList = new ArrayList<>();
     TextView textView;
     String eventdate;
     ProgressBar progressBar;
@@ -45,7 +42,7 @@ public class calenderFragment extends Fragment {
     private DatabaseReference databaseReference;
     DayScrollDatePicker mPicker;
 
-    public calenderFragment() {
+    public CalenderFragment() {
         // Required empty public constructor
     }
 
@@ -80,7 +77,7 @@ public class calenderFragment extends Fragment {
                 //Toast.makeText(getActivity(), position+ " is selected successfully", Toast.LENGTH_SHORT).show();
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
-                Event_info event = myCalenderList.get(position);
+                EventInfo event = myCalenderList.get(position);
                 intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 startActivity(intent);
             }
@@ -115,7 +112,7 @@ public class calenderFragment extends Fragment {
                             for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                                 for (DataSnapshot eventSnapshot : postSnapshot.getChildren()) {
                                     if (!eventSnapshot.getKey().equals(getString(R.string.Realtime_Firebase_Null_child_key))) {
-                                        Event_info event = eventSnapshot.getValue(Event_info.class);
+                                        EventInfo event = eventSnapshot.getValue(EventInfo.class);
                                         if(event.getmDate().equals(eventdate))
                                             myCalenderList.add(event);
                                     }
@@ -134,7 +131,7 @@ public class calenderFragment extends Fragment {
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
-                            Log.d(TAG, "onCancelled:" + databaseError.getMessage());
+                            Log.d(TAG, getString(R.string.FirebaseLogOnCancelld) + databaseError.getMessage());
                         }
                     };
                     databaseReference.addListenerForSingleValueEvent(valueEventListener);

@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserAccountActivity extends AppCompatActivity {
-    User_info user_info;
+    UserInfo user_info;
     TextView name,email,phone,birthday,gender,job,overview;
     de.hdodenhof.circleimageview.CircleImageView photo;
     private ProgressDialog mProgressDialog;
@@ -31,14 +31,14 @@ public class UserAccountActivity extends AppCompatActivity {
 
 
         mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Loading..");
+        mProgressDialog.setMessage(getString(R.string.ProgressDialogLoadingMsg));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setCancelable(false);
 
         mProgressDialog.show();
 
         Intent intent = getIntent();
-        user_info = (User_info) intent.getSerializableExtra(getString(R.string.UserObject_Intent_Key));
+        user_info = (UserInfo) intent.getSerializableExtra(getString(R.string.UserObject_Intent_Key));
 
         //initView
         name = (TextView) findViewById(R.id.user_Account_name);

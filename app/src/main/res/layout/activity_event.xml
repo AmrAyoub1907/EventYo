@@ -52,8 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:contentInsetLeft="16dp"
-                app:contentInsetStart="16dp"
+                app:contentInsetStart="@dimen/toolbar_content_dimen"
                 app:contentInsetStartWithNavigation="16dp"
                 app:layout_collapseMode="pin">
             </android.support.v7.widget.Toolbar>
@@ -69,13 +68,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/account_image"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/Info_Collection_margin_Top"
                 android:orientation="vertical">
                 <Button
+                    android:contentDescription="@string/accessibility_SaveEvent"
                     android:id="@+id/details_button_saveEvent"
                     android:onClick="details_event_going"
-                    android:layout_margin="12dp"
-                    android:elevation="4dp"
+                    android:layout_margin="@dimen/Margin_Padding_12dp"
+                    android:elevation="@dimen/Info_elevation"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:text="Going"
@@ -90,14 +90,13 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:orientation="horizontal">
-
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="3"
                         android:clickable="true"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Description :" />
 
@@ -105,9 +104,9 @@
                         android:id="@+id/details_event_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Description" />
                 </LinearLayout>
@@ -121,10 +120,10 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="3"
                         android:clickable="true"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Category :" />
 
@@ -132,9 +131,9 @@
                         android:id="@+id/details_event_category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Category" />
                 </LinearLayout>
@@ -148,10 +147,10 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="3"
                         android:clickable="true"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Location :" />
 
@@ -159,9 +158,9 @@
                         android:id="@+id/details_event_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Location" />
                 </LinearLayout>
@@ -175,10 +174,10 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="3"
                         android:clickable="true"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Date :" />
 
@@ -186,9 +185,9 @@
                         android:id="@+id/details_event_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Date" />
                 </LinearLayout>
@@ -201,10 +200,10 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="3"
                         android:clickable="true"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Time :" />
 
@@ -212,9 +211,9 @@
                         android:id="@+id/details_event_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Time" />
                 </LinearLayout>
@@ -229,10 +228,10 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="3"
                         android:clickable="true"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:text="Event Created By : " />
 
@@ -242,9 +241,9 @@
                         android:textStyle="italic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
-                        android:elevation="4dp"
+                        android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
                         android:textColor="#0198fe"
                         android:clickable="true"

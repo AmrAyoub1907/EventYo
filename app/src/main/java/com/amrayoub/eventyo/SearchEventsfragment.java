@@ -29,8 +29,8 @@ import java.util.ArrayList;
 
 public class SearchEventsfragment extends Fragment {
     private DatabaseReference mDatabase;
-    ArrayList<Event_info> myEventsList = new ArrayList<>();
-    ArrayList<Event_info> myMiniEventsList = new ArrayList<>();
+    ArrayList<EventInfo> myEventsList = new ArrayList<>();
+    ArrayList<EventInfo> myMiniEventsList = new ArrayList<>();
     TextView textView;
     ProgressBar progressBar;
     RecyclerView rv;
@@ -64,7 +64,7 @@ public class SearchEventsfragment extends Fragment {
                 //Toast.makeText(getActivity(), position+ " is selected successfully", Toast.LENGTH_SHORT).show();
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
-                Event_info event = myMiniEventsList.get(position);
+                EventInfo event = myMiniEventsList.get(position);
                 intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 startActivity(intent);
             }
@@ -81,7 +81,7 @@ public class SearchEventsfragment extends Fragment {
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                             for (DataSnapshot childpostSnapshot: postSnapshot.getChildren()){
                                 if(!childpostSnapshot.getKey().equals(getString(R.string.Realtime_Firebase_Null_child_key))){
-                                    Event_info event = childpostSnapshot.getValue(Event_info.class);
+                                    EventInfo event = childpostSnapshot.getValue(EventInfo.class);
                                     myEventsList.add(event);
                                 }
                             }
@@ -94,7 +94,6 @@ public class SearchEventsfragment extends Fragment {
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Log.w("SearchEventsFragment", "getUser:onCancelled", databaseError.toException());
                     }
                 });
         return view;

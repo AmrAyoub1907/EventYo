@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,12 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 
-public class goingFragment extends Fragment {
-    ArrayList<Event_info> myGoingList = new ArrayList<>();
+public class GoingFragment extends Fragment {
+    ArrayList<EventInfo> myGoingList = new ArrayList<>();
     RecyclerView rv;
     RecyclerView.LayoutManager rvLm;
     MainRecyclerViewAdapter mainRecyclerViewAdapter;
-    public goingFragment() {
+    public GoingFragment() {
         // Required empty public constructor
     }
 
@@ -51,7 +50,7 @@ public class goingFragment extends Fragment {
                 //Toast.makeText(getActivity(), position+ " is selected successfully", Toast.LENGTH_SHORT).show();
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
-                Event_info event = myGoingList.get(position);
+                EventInfo event = myGoingList.get(position);
                 intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 intent.putExtra(getString(R.string.Going_Tab_Identifier_Key),true);
                 startActivity(intent);

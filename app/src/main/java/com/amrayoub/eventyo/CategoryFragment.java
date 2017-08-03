@@ -20,15 +20,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class categoryFragment extends Fragment {
-    private static final String TAG = "categoryFragment";
-    ArrayList<Event_info> myCategoryList=new ArrayList<>();
+public class CategoryFragment extends Fragment {
+    private static final String TAG = "CategoryFragment";
+    ArrayList<EventInfo> myCategoryList=new ArrayList<>();
     Spinner mSpinner;
     TextView textView;
     ProgressBar progressBar;
@@ -39,7 +38,7 @@ public class categoryFragment extends Fragment {
     private DatabaseReference databaseReference;
 
 
-    public categoryFragment() {
+    public CategoryFragment() {
         // Required empty public constructor
     }
     @Override
@@ -65,7 +64,7 @@ public class categoryFragment extends Fragment {
                 //Toast.makeText(getActivity(), position+ " is selected successfully", Toast.LENGTH_SHORT).show();
                 //handle click event
                 Intent intent = new Intent(getActivity(),EventActivity.class);
-                Event_info event = myCategoryList.get(position);
+                EventInfo event = myCategoryList.get(position);
                 intent.putExtra(getString(R.string.EventObject_Intent_Key),event);
                 startActivity(intent);
             }
@@ -104,7 +103,7 @@ public class categoryFragment extends Fragment {
 
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                             if(!postSnapshot.getKey().equals(getString(R.string.Realtime_Firebase_Null_child_key))){
-                                Event_info event = postSnapshot.getValue(Event_info.class);
+                                EventInfo event = postSnapshot.getValue(EventInfo.class);
                                 int day,month,year;
                                 String[] separated = event.getmDate().split("-");
                                 day= Integer.parseInt(separated[0]);
@@ -128,14 +127,14 @@ public class categoryFragment extends Fragment {
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError){
-                        Log.d(TAG, "onCancelled:" + databaseError.getMessage());
+                        Log.d(TAG,  getString(R.string.FirebaseLogOnCancelld)+ databaseError.getMessage());
                     }
                 };
                 databaseReference.addListenerForSingleValueEvent(valueEventListener);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getActivity(), "Nothing Selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.Nothing_Selected_msg), Toast.LENGTH_SHORT).show();
             }
         });
     }

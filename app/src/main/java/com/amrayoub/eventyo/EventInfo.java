@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 
 @IgnoreExtraProperties
-public class Event_info implements Serializable {
+public class EventInfo implements Serializable {
     public String mId;
     public String mUserId;
     public String mUserName;
@@ -22,10 +22,10 @@ public class Event_info implements Serializable {
     public String mPhotoUrl;
 
 
-    public Event_info() {
+    public EventInfo() {
     }
 
-    public Event_info(String mId,String mUserId,String mUserName, String mTilte,String mCategory, String mDescription, String mLocation, String mDate, String mTime,String mPhotoUrl) {
+    public EventInfo(String mId, String mUserId, String mUserName, String mTilte, String mCategory, String mDescription, String mLocation, String mDate, String mTime, String mPhotoUrl) {
         this.mId = mId;
         this.mUserId = mUserId;
         this.mUserName = mUserName;

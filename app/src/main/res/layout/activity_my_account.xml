@@ -55,7 +55,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:layout_gravity="center"
-                            android:elevation="5dp"
+                            android:elevation="@dimen/Circular_Image_elevation"
                             android:src="@color/accent"
                             app:civ_border_color="#FFFFFFFF"
                             app:civ_border_width="4dp" />
@@ -65,7 +65,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/account_image"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="@dimen/Info_Collection_margin_Top"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -77,10 +77,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Name :" />
 
@@ -88,9 +88,9 @@
                                 android:id="@+id/myAccount_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Name" />
                         </LinearLayout>
@@ -104,10 +104,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Email :" />
 
@@ -115,9 +115,9 @@
                                 android:id="@+id/myAccount_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Email" />
                         </LinearLayout>
@@ -131,10 +131,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Phone :" />
 
@@ -142,9 +142,9 @@
                                 android:id="@+id/myAccount_phone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User phone" />
                         </LinearLayout>
@@ -158,10 +158,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Birthday :" />
 
@@ -169,9 +169,9 @@
                                 android:id="@+id/myAccount_birthday"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Birthday" />
                         </LinearLayout>
@@ -185,10 +185,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User gender :" />
 
@@ -196,9 +196,9 @@
                                 android:id="@+id/myAccount_gender"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Gender" />
                         </LinearLayout>
@@ -212,10 +212,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Job :" />
 
@@ -223,9 +223,9 @@
                                 android:id="@+id/myAccount_job"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Job" />
                         </LinearLayout>
@@ -239,10 +239,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Overview " />
 
@@ -250,9 +250,9 @@
                                 android:id="@+id/myAccount_overview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Overview" />
                         </LinearLayout>
@@ -282,7 +282,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:layout_gravity="center"
-                            android:elevation="5dp"
+                            android:elevation="@dimen/Info_margin"
                             android:src="@color/accent"
                             app:civ_border_color="#FFFFFFFF"
                             app:civ_border_width="4dp" />
@@ -298,7 +298,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:padding="12dp"
+                                android:padding="@dimen/Margin_Padding_12dp"
                                 android:text="Upload Profile Photo"
                                 android:textColor="#ffffff"
                                 android:textSize="18sp" />
@@ -307,7 +307,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="3"
-                                android:padding="12dp"
+                                android:padding="@dimen/Margin_Padding_12dp"
                                 android:src="@drawable/ic_file_upload_24dp" />
                         </LinearLayout>
                     </FrameLayout>
@@ -316,7 +316,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/edit_account_image"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="@dimen/Info_margin"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -328,10 +328,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Name :" />
 
@@ -339,11 +339,11 @@
                                 android:id="@+id/edit_myAccount_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
-                                android:padding="20dp"
-                                android:hint="User Name" />
+                                android:elevation="@dimen/Info_elevation"
+                                android:hint="User Name"
+                                android:padding="20dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -355,10 +355,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Email :" />
 
@@ -366,11 +366,11 @@
                                 android:id="@+id/edit_myAccount_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
-                                android:padding="20dp"
-                                android:hint="User Email" />
+                                android:elevation="@dimen/Info_elevation"
+                                android:hint="User Email"
+                                android:padding="20dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -382,10 +382,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Phone :" />
 
@@ -394,11 +394,11 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
-                                android:padding="20dp"
-                                android:hint="User phone" />
+                                android:elevation="@dimen/Info_elevation"
+                                android:hint="User phone"
+                                android:padding="20dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -410,10 +410,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Birthday :" />
 
@@ -421,9 +421,9 @@
                                 android:id="@+id/edit_myAccount_birthday"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="dd/mm/yyyy" />
 
@@ -432,7 +432,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginRight="12dp"
+                                android:layout_marginEnd="@dimen/Margin_Padding_12dp"
                                 android:onClick="pick_birthday"
                                 android:src="@drawable/ic_event" />
                         </LinearLayout>
@@ -446,10 +446,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User gender :" />
 
@@ -488,10 +488,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Job :" />
 
@@ -499,11 +499,11 @@
                                 android:id="@+id/edit_myAccount_job"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
-                                android:padding="20dp"
-                                android:hint="User Job" />
+                                android:elevation="@dimen/Info_elevation"
+                                android:hint="User Job"
+                                android:padding="20dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -515,10 +515,10 @@
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="3"
                                 android:clickable="true"
-                                android:elevation="4dp"
+                                android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
                                 android:text="User Overview " />
 
@@ -526,11 +526,11 @@
                                 android:id="@+id/edit_myAccount_overview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_margin="@dimen/Info_margin"
                                 android:layout_weight="2"
-                                android:elevation="4dp"
-                                android:padding="20dp"
-                                android:hint="User Overview" />
+                                android:elevation="@dimen/Info_elevation"
+                                android:hint="User Overview"
+                                android:padding="20dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
@@ -542,11 +542,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:elevation="6dp"
+            android:layout_margin="@dimen/fab_margin"
+            android:contentDescription="@string/accessibility_EditAccountInfo"
+            android:elevation="@dimen/fab_elevation"
             android:onClick="editmyAccount"
             android:src="@drawable/ic_edit"
             app:fabSize="normal"
-            app:pressedTranslationZ="12dp" />
+            app:pressedTranslationZ="@dimen/fab_press_translation_z" />
     </FrameLayout>
 </LinearLayout>
