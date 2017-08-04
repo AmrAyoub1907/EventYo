@@ -424,6 +424,7 @@
                                 />
 
                             <ImageButton
+                                android:contentDescription="@string/accessibility_EditAccountInfo_PickDate"
                                 android:id="@+id/pick_birthday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
