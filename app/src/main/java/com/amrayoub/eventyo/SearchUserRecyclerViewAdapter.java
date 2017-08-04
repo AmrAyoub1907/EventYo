@@ -45,6 +45,8 @@ public class SearchUserRecyclerViewAdapter extends RecyclerView.Adapter<SearchUs
     public void onBindViewHolder(SearchUserRecyclerViewAdapter.EventsViewHolder holder, int position) {
         holder.email.setText(myUsers.get(position).getmEmail());
         holder.title.setText(myUsers.get(position).getmName());
+        if(myUsers.get(position).getmPhoto().equals(""))
+            myUsers.get(position).mPhoto="//";
         Picasso.with(mContext).load(myUsers.get(position).getmPhoto())
                 .placeholder(R.drawable.avatar)
                 .error(R.drawable.avatar)

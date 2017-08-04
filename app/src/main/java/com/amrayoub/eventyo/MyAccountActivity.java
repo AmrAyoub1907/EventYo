@@ -62,8 +62,10 @@ public class MyAccountActivity extends AppCompatActivity {
         setSupportActionBar(myChildToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         userInfo = UserInfoHolder.getInput();
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance().getReference();
+
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage(getString(R.string.ProgressDialogProfileUpdatingMsg));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -109,6 +111,7 @@ public class MyAccountActivity extends AppCompatActivity {
                 .placeholder(R.drawable.avatar)
                 .error(R.drawable.avatar)
                 .into(circleImageView);
+
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup.clearCheck();
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

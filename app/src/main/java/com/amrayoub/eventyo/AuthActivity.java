@@ -160,6 +160,7 @@ public class AuthActivity extends AppCompatActivity {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
+                mProgressDialog.dismiss();
                 Toast.makeText(this,  getString(R.string.Google_SignIn_Failed), Toast.LENGTH_SHORT).show();
             }
             return;
@@ -174,9 +175,8 @@ public class AuthActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         final FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser!=null){
-            checkFirebaseDatabase();
             startActivity(new Intent(AuthActivity.this,MainActivity.class));
-            finish();
+            //finish();
         }
     }
     public void signin(View view) {
@@ -233,13 +233,10 @@ public class AuthActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, getString(R.string.signInWithCredentialSuccessLog));
                             checkFirebaseDatabase();
-                            //startActivity(new Intent(AuthActivity.this,MainActivity.class));
-                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(AuthActivity.this, getString(R.string.FirebaseAuthFailed),
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
                         }
 
                     }
@@ -256,8 +253,6 @@ public class AuthActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, getString(R.string.signInWithCredentialSuccessLog));
                             checkFirebaseDatabase();
-                            //startActivity(new Intent(AuthActivity.this,MainActivity.class));
-                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             LoginManager.getInstance().logOut();
@@ -319,7 +314,7 @@ public class AuthActivity extends AppCompatActivity {
                 ,name
                 ,email
                 ,""
-                , photoUrl
+                ,photoUrl
                 ,gender
                 ,birthday
                 ,""
@@ -332,10 +327,11 @@ public class AuthActivity extends AppCompatActivity {
                     mDatabase.child(currentUser.getUid()).setValue(user_info);
                 else {
                     user_info = dataSnapshot.child(currentUser.getUid()).getValue(UserInfo.class);
-                    UserInfoHolder.setInput(user_info);
                 }
+                UserInfoHolder.setInput(user_info);
                 mProgressDialog.dismiss();
                 startActivity(new Intent(AuthActivity.this,MainActivity.class));
+                //finish();
             }
             @Override
             public void onCancelled(DatabaseError databaseError){

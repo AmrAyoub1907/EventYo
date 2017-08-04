@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserAccountActivity extends AppCompatActivity {
-    UserInfo user_info;
+    UserInfo userInfo;
     TextView name,email,phone,birthday,gender,job,overview;
     de.hdodenhof.circleimageview.CircleImageView photo;
     private ProgressDialog mProgressDialog;
@@ -35,10 +35,9 @@ public class UserAccountActivity extends AppCompatActivity {
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setCancelable(false);
 
-        mProgressDialog.show();
 
         Intent intent = getIntent();
-        user_info = (UserInfo) intent.getSerializableExtra(getString(R.string.UserObject_Intent_Key));
+        userInfo = (UserInfo) intent.getSerializableExtra(getString(R.string.UserObject_Intent_Key));
 
         //initView
         name = (TextView) findViewById(R.id.user_Account_name);
@@ -50,15 +49,20 @@ public class UserAccountActivity extends AppCompatActivity {
         overview = (TextView) findViewById(R.id.user_Account_overview);
         photo = (CircleImageView) findViewById(R.id.user_Account_photo);
 
-        name.setText(user_info.getmName());
-        email.setText(user_info.getmEmail());
-        phone.setText(user_info.getmPhone());
-        birthday.setText(user_info.getmBirthday());
-        gender.setText(user_info.getmGender());
-        job.setText(user_info.getmWorkinsgat());
-        overview.setText(user_info.getmOverview());
-        Picasso.with(this).load(user_info.getmPhoto()).into(photo);
-        mProgressDialog.dismiss();
+        name.setText(userInfo.getmName());
+        email.setText(userInfo.getmEmail());
+        phone.setText(userInfo.getmPhone());
+        birthday.setText(userInfo.getmBirthday());
+        gender.setText(userInfo.getmGender());
+        job.setText(userInfo.getmWorkinsgat());
+        overview.setText(userInfo.getmOverview());
+        if(userInfo.getmPhoto().equals(""))
+            userInfo.mPhoto="//";
+
+        Picasso.with(getBaseContext()).load(userInfo.getmPhoto())
+                .placeholder(R.drawable.avatar)
+                .error(R.drawable.avatar)
+                .into(photo);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
