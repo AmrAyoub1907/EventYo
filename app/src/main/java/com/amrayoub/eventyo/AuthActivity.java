@@ -58,7 +58,7 @@ public class AuthActivity extends AppCompatActivity {
     private SignInButton signInButton;
     private CallbackManager mCallbackManager;
     private FirebaseAuth mAuth;
-    private String email,password, name ="",Photourl="", birthday ="", gender ="";
+    private String email,password, name ="", photoUrl ="", birthday ="", gender ="";
     private LoginButton loginButton;
     private DatabaseReference mDatabase;
     private ProgressDialog mProgressDialog;
@@ -96,8 +96,9 @@ public class AuthActivity extends AppCompatActivity {
                                 try {
                                     String id = object.getString("id");
                                     URL profile_pic = new URL("https://graph.facebook.com/" + id + "/picture?width=200&height=150");
-                                    Photourl = profile_pic.toString();
+                                    photoUrl = profile_pic.toString();
                                     name = object.getString("name");
+                                    email = object.getString("email");
                                     gender = object.getString("gender");
                                     birthday = object.getString("birthday");// 01/31/1980 format
                                 } catch (JSONException e) {
@@ -173,34 +174,7 @@ public class AuthActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         final FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser!=null){
-                user_info = new UserInfo(
-                        currentUser.getUid(),
-                        name,
-                        email
-                        ,""
-                        ,""
-                        , gender
-                        , birthday
-                        ,""
-                        ,"");
-                mDatabase = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_user_path));
-                ValueEventListener valueEventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                        if(!dataSnapshot.hasChild(currentUser.getUid()))
-                            mDatabase.child(currentUser.getUid()).setValue(user_info);
-                        else {
-                            user_info = dataSnapshot.child(currentUser.getUid()).getValue(UserInfo.class);
-                            UserInfoHolder.setInput(user_info);
-                        }
-
-                }
-                @Override
-                public void onCancelled(DatabaseError databaseError){
-                    Log.d(TAG, getString(R.string.FirebaseLogOnCancelld) + databaseError.getMessage());
-                }
-            };
-            mDatabase.addListenerForSingleValueEvent(valueEventListener);
+            checkFirebaseDatabase();
             startActivity(new Intent(AuthActivity.this,MainActivity.class));
             finish();
         }
@@ -225,37 +199,7 @@ public class AuthActivity extends AppCompatActivity {
                             mProgressDialog.dismiss();
                             Toast.makeText(AuthActivity.this,getString(R.string.FirebaseAuthFailed), Toast.LENGTH_SHORT).show();
                         }else{
-                            final FirebaseUser currentUser = mAuth.getCurrentUser();
-                            user_info = new UserInfo(
-                                    currentUser.getUid()
-                                    ,name
-                                    ,email
-                                    ,""
-                                    ,""
-                                    ,gender
-                                    ,birthday
-                                    ,""
-                                    ,"");
-                            mDatabase = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_user_path));
-                            ValueEventListener valueEventListener = new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    if(!dataSnapshot.hasChild(currentUser.getUid()))
-                                        mDatabase.child(currentUser.getUid()).setValue(user_info);
-                                    else {
-                                        user_info = dataSnapshot.child(currentUser.getUid()).getValue(UserInfo.class);
-                                        UserInfoHolder.setInput(user_info);
-                                    }
-                                    mProgressDialog.dismiss();
-                                    startActivity(new Intent(AuthActivity.this,MainActivity.class));
-                                }
-                                @Override
-                                public void onCancelled(DatabaseError databaseError){
-                                    mProgressDialog.dismiss();
-                                    Log.d(TAG, getString(R.string.FirebaseLogOnCancelld) + databaseError.getMessage());
-                                }
-                            };
-                            mDatabase.addListenerForSingleValueEvent(valueEventListener);
+                            checkFirebaseDatabase();
                         }
                     }
                 });
@@ -277,8 +221,8 @@ public class AuthActivity extends AppCompatActivity {
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG,getString(R.string.FirebaseAuthWithGoogleLog) + acct.getId());
         name = acct.getDisplayName();
-        Photourl = acct.getPhotoUrl().toString();
-
+        photoUrl = acct.getPhotoUrl().toString();
+        email = acct.getEmail();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -288,8 +232,8 @@ public class AuthActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, getString(R.string.signInWithCredentialSuccessLog));
-                            startActivity(new Intent(AuthActivity.this,MainActivity.class));
-
+                            checkFirebaseDatabase();
+                            //startActivity(new Intent(AuthActivity.this,MainActivity.class));
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -311,8 +255,8 @@ public class AuthActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, getString(R.string.signInWithCredentialSuccessLog));
-                            startActivity(new Intent(AuthActivity.this,MainActivity.class));
-
+                            checkFirebaseDatabase();
+                            //startActivity(new Intent(AuthActivity.this,MainActivity.class));
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -367,6 +311,39 @@ public class AuthActivity extends AppCompatActivity {
         slide2.setDuration(1000);
         slide2.setSlideEdge(Gravity.TOP);
         getWindow().setReenterTransition(slide2);
+    }
+    private void checkFirebaseDatabase(){
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
+        user_info = new UserInfo(
+                currentUser.getUid()
+                ,name
+                ,email
+                ,""
+                , photoUrl
+                ,gender
+                ,birthday
+                ,""
+                ,"");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(getString(R.string.Firebase_database_user_path));
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.hasChild(currentUser.getUid()))
+                    mDatabase.child(currentUser.getUid()).setValue(user_info);
+                else {
+                    user_info = dataSnapshot.child(currentUser.getUid()).getValue(UserInfo.class);
+                    UserInfoHolder.setInput(user_info);
+                }
+                mProgressDialog.dismiss();
+                startActivity(new Intent(AuthActivity.this,MainActivity.class));
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError){
+                mProgressDialog.dismiss();
+                Log.d(TAG, getString(R.string.FirebaseLogOnCancelld) + databaseError.getMessage());
+            }
+        };
+        mDatabase.addListenerForSingleValueEvent(valueEventListener);
     }
 
 }

@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 return true;
-
             case R.id.search_button:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
