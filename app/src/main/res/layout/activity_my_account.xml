@@ -400,7 +400,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -464,7 +464,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:checked="true"
-                                    android:text="Male" />
+                                    android:text="@string/RadioButton_Male" />
 
                                 <RadioButton
                                     android:id="@+id/radioFemale"
@@ -472,14 +472,14 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:checked="false"
-                                    android:text="Female" />
+                                    android:text="@string/RadioButton_Female" />
                             </RadioGroup>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView

@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'EventYoKey'
             keyPassword 'aammrroomm33'
-            storeFile file('C:/Users/Amr Ayoub/.android/keystores/android.jks')
+            storeFile file('A:/Android Projects/EventYo/keystore/android.jks')
             storePassword 'aammrroomm33'
         }
     }

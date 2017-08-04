@@ -90,4 +90,6 @@
     <string name="User_Overview_Text">User Overview :</string>
     <string name="No_Events_Msg">No Events Yet</string>
     <string name="accessibility_EditAccountInfo_PickDate">Pick Date</string>
+    <string name="RadioButton_Male">Male</string>
+    <string name="RadioButton_Female">Female</string>
 </resources>
