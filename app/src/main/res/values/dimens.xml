@@ -9,6 +9,7 @@
     <dimen name="tab_padding_bottom">16dp</dimen>
     <dimen name="tab_label">16sp</dimen>
     <dimen name="custom_tab_layout_height">72dp</dimen>
+    <dimen name="Save_Event_Button">56dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_press_translation_z">12dp</dimen>
     <dimen name="Margin_Padding_12dp">12dp</dimen>
@@ -18,6 +19,26 @@
     <dimen name="Info_Collection_margin_Top">5dp</dimen>
     <dimen name="Circular_Image_elevation">5dp</dimen>
     <dimen name="Info_elevation">4dp</dimen>
+    <dimen name="Info_textSize">18sp</dimen>
+    <dimen name="Widget_textSize">28sp</dimen>
+    <dimen name="Spinner_textSize">20sp</dimen>
+    <dimen name="Search_result_TitleTextSize">20sp</dimen>
+    <dimen name="Event_TitleTextSize">24sp</dimen>
+    <dimen name="Event_DateTextSize">14sp</dimen>
+    <dimen name="Search_Email_TextSize">12sp</dimen>
+    <dimen name="Search_Date_TextSize">18sp</dimen>
+    <dimen name="AppName_TextSize">34sp</dimen>
+    <dimen name="SignInWith_TextSize">56sp</dimen>
+    <dimen name="OR_TextSize">28sp</dimen>
+    <dimen name="Save_Event_TextSize">24sp</dimen>
+
+
+
+
+
+
+
+
 
 
 

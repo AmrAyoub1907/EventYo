@@ -301,7 +301,7 @@
                                 android:padding="@dimen/Margin_Padding_12dp"
                                 android:text="Upload Profile Photo"
                                 android:textColor="@color/white"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/Info_textSize" />
 
                             <ImageView
                                 android:layout_width="wrap_content"

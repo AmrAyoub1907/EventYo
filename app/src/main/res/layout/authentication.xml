@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Sign in with"
         android:gravity="center"
-        android:textSize="56sp"
+        android:textSize="@dimen/SignInWith_TextSize"
         />
     <LinearLayout
         android:orientation="vertical"
@@ -60,7 +60,7 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:text="or"
-            android:textSize="28sp"
+            android:textSize="@dimen/OR_TextSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <View
@@ -192,7 +192,7 @@
     <TextView
         android:text="EventYo"
         android:textStyle="bold"
-        android:textSize="34sp"
+        android:textSize="@dimen/AppName_TextSize"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal|bottom"
         android:textColor="#ffffff"
@@ -206,7 +206,7 @@
         android:layout_height="match_parent">
         <TextView
 
-            android:textSize="18sp"
+            android:textSize="@dimen/Info_textSize"
             android:text="*if you don't have account "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

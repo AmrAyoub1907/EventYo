@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/main_rv_title"
                 android:layout_alignParentTop="true"
-                android:textSize="24sp"
+                android:textSize="@dimen/Event_TitleTextSize"
                 android:textStyle="bold"
                 android:text="Event Title"
                 />
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/main_rv_date"
                 android:layout_below="@+id/main_rv_title"
-                android:textSize="14sp"
+                android:textSize="@dimen/Event_DateTextSize"
                 android:text="14/12/2017"
                 />
 
