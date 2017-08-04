@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/search_title"
                 android:gravity="center"
-                android:text="Search Result"
                 android:textSize="@dimen/Search_result_TitleTextSize"
                 android:textStyle="bold"
                 />
@@ -45,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/search_date"
                 android:gravity="center"
-                android:text="amrayman1907@gmail.com"
                 android:textSize="@dimen/Search_Email_TextSize"
                 />
             </LinearLayout>

@@ -15,7 +15,7 @@
         android:id="@+id/searh_user_no_users"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:text=" No Users Yet"
+        tools:text="No Users Yet"
         android:gravity="center"
         android:textSize="@dimen/Event_TitleTextSize"
         android:visibility="gone"

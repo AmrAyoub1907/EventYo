@@ -78,7 +78,7 @@
                     android:elevation="@dimen/Info_elevation"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/Save_Event_Button"
-                    android:text="Going"
+                    android:text="@string/Event_Going_Button_Going"
                     android:textSize="@dimen/Save_Event_TextSize"
                     android:background="@color/com_facebook_button_border_color_focused"
                     android:textColor="@color/accent"
@@ -98,7 +98,7 @@
                         android:clickable="true"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Description :" />
+                        android:text="@string/Event_Description_Text" />
 
                     <TextView
                         android:id="@+id/details_event_description"
@@ -108,7 +108,7 @@
                         android:layout_weight="2"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Description" />
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,7 +125,7 @@
                         android:clickable="true"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Category :" />
+                        android:text="@string/Event_Category_Text" />
 
                     <TextView
                         android:id="@+id/details_event_category"
@@ -134,8 +134,7 @@
                         android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
                         android:elevation="@dimen/Info_elevation"
-                        android:padding="20dp"
-                        android:text="Event Category" />
+                        android:padding="20dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -152,7 +151,7 @@
                         android:clickable="true"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Location :" />
+                        android:text="@string/Event_Location_Text" />
 
                     <TextView
                         android:id="@+id/details_event_location"
@@ -161,14 +160,13 @@
                         android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
                         android:elevation="@dimen/Info_elevation"
-                        android:padding="20dp"
-                        android:text="Event Location" />
+                        android:padding="20dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
+                    android:background="@color/white"
                     android:orientation="horizontal">
 
                     <TextView
@@ -179,7 +177,7 @@
                         android:clickable="true"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Date :" />
+                        android:text="@string/Event_Date_Text" />
 
                     <TextView
                         android:id="@+id/details_event_date"
@@ -189,7 +187,7 @@
                         android:layout_weight="2"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Date" />
+                        />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -205,7 +203,7 @@
                         android:clickable="true"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Time :" />
+                        android:text="@string/Event_Time_Text" />
 
                     <TextView
                         android:id="@+id/details_event_time"
@@ -214,15 +212,14 @@
                         android:layout_margin="@dimen/Info_margin"
                         android:layout_weight="2"
                         android:elevation="@dimen/Info_elevation"
-                        android:padding="20dp"
-                        android:text="Event Time" />
+                        android:padding="20dp" />
                 </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
+                    android:background="@color/white"
                     android:orientation="horizontal">
 
                     <TextView
@@ -233,7 +230,7 @@
                         android:clickable="true"
                         android:elevation="@dimen/Info_elevation"
                         android:padding="20dp"
-                        android:text="Event Created By : " />
+                        android:text="@string/Event_User_Text" />
 
                     <TextView
                         android:onClick="openuserInfo"
@@ -247,7 +244,7 @@
                         android:padding="20dp"
                         android:textColor="@color/light_blue"
                         android:clickable="true"
-                        android:text="User Name" />
+                        />
                 </LinearLayout>
             </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

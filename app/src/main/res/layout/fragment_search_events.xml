@@ -14,7 +14,7 @@
         android:id="@+id/searh_event_no_events"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text=" No Events Yet"
+        android:text="@string/No_Events_Msg"
         android:gravity="center"
         android:textSize="@dimen/Event_TitleTextSize"
         android:visibility="gone"

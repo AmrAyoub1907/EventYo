@@ -190,7 +190,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView
-        android:text="EventYo"
+        android:text="@string/app_name"
         android:textStyle="bold"
         android:textSize="@dimen/AppName_TextSize"
         android:layout_gravity="bottom"

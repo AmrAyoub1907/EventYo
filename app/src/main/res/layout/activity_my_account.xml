@@ -82,7 +82,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Name :" />
+                                android:text="@string/User_Name_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_name"
@@ -92,7 +92,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Name" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -109,7 +109,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Email :" />
+                                android:text="@string/User_Email_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_email"
@@ -119,7 +119,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Email" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -136,7 +136,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Phone :" />
+                                android:text="@string/User_Phone_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_phone"
@@ -146,7 +146,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User phone" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -163,7 +163,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Birthday :" />
+                                android:text="@string/User_Birthday_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_birthday"
@@ -173,7 +173,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Birthday" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -190,7 +190,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User gender :" />
+                                android:text="@string/User_Gender_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_gender"
@@ -200,7 +200,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Gender" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -217,7 +217,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Job :" />
+                                android:text="@string/User_Job_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_job"
@@ -227,7 +227,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Job" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -244,7 +244,7 @@
                                 android:clickable="true"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Overview " />
+                                android:text="@string/User_Overview_Text" />
 
                             <TextView
                                 android:id="@+id/myAccount_overview"
@@ -254,7 +254,7 @@
                                 android:layout_weight="2"
                                 android:elevation="@dimen/Info_elevation"
                                 android:padding="20dp"
-                                android:text="User Overview" />
+                                />
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>

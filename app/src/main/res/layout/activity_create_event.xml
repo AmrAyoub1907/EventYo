@@ -61,7 +61,7 @@
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Upload Event Cover Photo"
+                            android:text="@string/Create_Event_UploadPhotoText"
                             android:textColor="@color/white"
                             />
                         <ImageView
@@ -74,7 +74,6 @@
 
                 </FrameLayout>
                 <EditText
-                    android:contentDescription="@string/accessibility_AddEventTitle"
                     android:id="@+id/create_event_title"
                     android:textSize="@dimen/Info_textSize"
                     android:layout_width="fill_parent"
@@ -85,9 +84,8 @@
                     android:padding="20dp"
                     android:singleLine="true"
                     android:imeOptions="actionNext"
-                    android:hint="Event Title" />
+                    android:hint="@string/Create_Event_TitleText"/>
                 <EditText
-                    android:contentDescription="@string/accessibility_AddEventDescription"
                     android:id="@+id/create_event_description"
                     android:textSize="@dimen/Info_textSize"
                     android:layout_width="fill_parent"
@@ -98,7 +96,7 @@
                     android:padding="20dp"
                     android:imeOptions="actionNext"
                     android:singleLine="true"
-                    android:hint="Event Description" />
+                    android:hint="@string/Create_Event_DescriptionText" />
                 <FrameLayout
                     android:elevation="@dimen/Info_elevation"
                     android:background="@color/white"
@@ -115,23 +113,21 @@
                         android:spinnerMode="dialog"
                         style="@style/Widget.AppCompat.Spinner.Underlined"
                         android:id="@+id/create_event_category"
-                        android:textSize="@dimen/Info_textSize"
-                        android:hint="Event Category" />
+                        android:textSize="@dimen/Info_textSize" />
                 </FrameLayout>
                 <EditText
                     android:id="@+id/create_event_location"
-                    android:contentDescription="@string/accessibility_AddEventLocation"
                     android:textSize="@dimen/Info_textSize"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/Info_margin"
-                    android:background="#fff"
+                    android:background="@color/white"
                     android:clickable="true"
                     android:elevation="@dimen/Info_elevation"
                     android:padding="20dp"
                     android:imeOptions="actionDone"
                     android:singleLine="true"
-                    android:hint="Event Loaction" />
+                    android:hint="@string/Create_Event_LocationText" />
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -142,17 +138,16 @@
                     android:elevation="@dimen/Info_elevation"
                     android:padding="20dp">
                 <TextView
-                    android:contentDescription="@string/accessibility_AddEventDate"
                     android:layout_weight="1"
                     android:id="@+id/create_event_date"
                     android:textSize="@dimen/Info_textSize"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:hint="Event Date" />
+                    android:background="@color/white"
+                    android:hint="@string/Create_Event_DateText" />
                     <Button
-                        android:text="Pick Date"
+                        android:text="@string/Create_Event_DateButton"
                         android:id="@+id/Create_event_date_button"
                         android:layout_weight="4"
                         android:layout_width="match_parent"
@@ -168,19 +163,18 @@
                     android:elevation="@dimen/Info_elevation"
                     android:padding="20dp">
                     <TextView
-                        android:contentDescription="@string/accessibility_AddEventTime"
                         android:layout_weight="1"
                         android:id="@+id/create_event_time"
                         android:textSize="@dimen/Info_textSize"
                         android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#fff"
-                        android:hint="Event Time" />
+                        android:background="@color/white"
+                        android:hint="@string/Create_Event_TimeText" />
                     <Button
                         android:id="@+id/Create_event_time_button"
                         android:layout_weight="4"
-                        android:text="Pick Time"
+                        android:text="@string/Create_Event_TimeButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>

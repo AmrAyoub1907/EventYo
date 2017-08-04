@@ -67,4 +67,26 @@
     <string name="Firebase_Photos_Path">Photos</string>
     <string name="Event_Going_Button_Going">Going</string>
     <string name="Event_Going_Button_NotGoing">Not Going</string>
+    <string name="Create_Event_UploadPhotoText">Upload Event Cover Photo</string>
+    <string name="Create_Event_TitleText">Event Title</string>
+    <string name="Create_Event_DescriptionText">Event Description</string>
+    <string name="Create_Event_LocationText">Event Loaction</string>
+    <string name="Create_Event_DateText">Event Date</string>
+    <string name="Create_Event_DateButton">Pick Date</string>
+    <string name="Create_Event_TimeText">Event Time</string>
+    <string name="Create_Event_TimeButton">Pick Time</string>
+    <string name="Event_Description_Text">Event Description :</string>
+    <string name="Event_Category_Text">Event Category :</string>
+    <string name="Event_Location_Text">Event Location :</string>
+    <string name="Event_Date_Text">Event Date :</string>
+    <string name="Event_Time_Text">Event Time :</string>
+    <string name="Event_User_Text">Event Created By :</string>
+    <string name="User_Name_Text">User Name :</string>
+    <string name="User_Email_Text">User Email :</string>
+    <string name="User_Phone_Text">User Phone :</string>
+    <string name="User_Birthday_Text">User Birthday :</string>
+    <string name="User_Gender_Text">User Gender :</string>
+    <string name="User_Job_Text">User Job :</string>
+    <string name="User_Overview_Text">User Overview :</string>
+    <string name="No_Events_Msg">No Events Yet</string>
 </resources>
