@@ -57,7 +57,7 @@
                             android:layout_gravity="center"
                             android:elevation="@dimen/Circular_Image_elevation"
                             android:src="@color/accent"
-                            app:civ_border_color="#FFFFFFFF"
+                            app:civ_border_color="@color/white"
                             app:civ_border_width="4dp" />
                     </FrameLayout>
 
@@ -71,7 +71,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -98,7 +98,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -125,7 +125,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -152,7 +152,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -179,7 +179,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -206,7 +206,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -233,7 +233,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -284,7 +284,7 @@
                             android:layout_gravity="center"
                             android:elevation="@dimen/Info_margin"
                             android:src="@color/accent"
-                            app:civ_border_color="#FFFFFFFF"
+                            app:civ_border_color="@color/white"
                             app:civ_border_width="4dp" />
 
                         <LinearLayout
@@ -300,7 +300,7 @@
                                 android:layout_weight="1"
                                 android:padding="@dimen/Margin_Padding_12dp"
                                 android:text="Upload Profile Photo"
-                                android:textColor="#ffffff"
+                                android:textColor="@color/white"
                                 android:textSize="18sp" />
 
                             <ImageView
@@ -322,7 +322,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -349,7 +349,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -376,7 +376,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -440,7 +440,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView
@@ -509,7 +509,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:background="@color/white"
                             android:orientation="horizontal">
 
                             <TextView

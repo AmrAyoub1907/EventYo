@@ -6,7 +6,7 @@
     android:layout_height="?android:attr/listPreferredItemHeight">
 
     <TextView
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:padding="12dp"
         android:hint="Title"
         android:gravity="center"
@@ -17,7 +17,7 @@
         android:layout_height="match_parent" />
     <TextView
         android:gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:padding="12dp"
         android:hint="31/7/2017"
         android:textSize="28sp"

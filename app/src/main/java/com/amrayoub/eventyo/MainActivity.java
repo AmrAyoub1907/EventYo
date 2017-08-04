@@ -58,22 +58,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.myAccount_button:
-                // User chose the "Settings" item, show the app settings UI...
                 startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
                 return true;
-
             case R.id.signout_button:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 return true;
             case R.id.search_button:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
                 startActivity(new Intent(MainActivity.this,SearchActivity.class));
                 return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

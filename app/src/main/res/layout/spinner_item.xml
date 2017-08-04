@@ -6,4 +6,4 @@
     android:layout_height="wrap_content"
     android:textSize="20sp"
     android:gravity="start"
-    android:textColor="#000000" />
+    android:textColor="@color/black" />
