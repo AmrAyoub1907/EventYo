@@ -81,7 +81,7 @@
                     android:layout_margin="@dimen/Info_margin"
                     android:background="#fff"
                     android:elevation="@dimen/Info_elevation"
-                    android:padding="20dp"
+                    android:padding="@dimen/Event_and_User_Info_padding"
                     android:singleLine="true"
                     android:imeOptions="actionNext"
                     android:hint="@string/Create_Event_TitleText"/>
@@ -93,7 +93,7 @@
                     android:layout_margin="@dimen/Info_margin"
                     android:background="@color/white"
                     android:elevation="@dimen/Info_elevation"
-                    android:padding="20dp"
+                    android:padding="@dimen/Event_and_User_Info_padding"
                     android:imeOptions="actionNext"
                     android:singleLine="true"
                     android:hint="@string/Create_Event_DescriptionText" />
@@ -104,7 +104,7 @@
                     android:layout_margin="@dimen/Info_margin"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="3dp"
-                    android:padding="20dp"
+                    android:padding="@dimen/Event_and_User_Info_padding"
                     android:layout_height="wrap_content">
                     <Spinner
                         android:contentDescription="@string/accessibility_AddEventCategory"
@@ -124,7 +124,7 @@
                     android:background="@color/white"
                     android:clickable="true"
                     android:elevation="@dimen/Info_elevation"
-                    android:padding="20dp"
+                    android:padding="@dimen/Event_and_User_Info_padding"
                     android:imeOptions="actionDone"
                     android:singleLine="true"
                     android:hint="@string/Create_Event_LocationText" />
@@ -136,7 +136,7 @@
                     android:layout_marginTop="3dp"
                     android:background="@color/white"
                     android:elevation="@dimen/Info_elevation"
-                    android:padding="20dp">
+                    android:padding="@dimen/Event_and_User_Info_padding">
                 <TextView
                     android:layout_weight="1"
                     android:id="@+id/create_event_date"
@@ -161,7 +161,7 @@
                     android:layout_marginTop="3dp"
                     android:background="@color/white"
                     android:elevation="@dimen/Info_elevation"
-                    android:padding="20dp">
+                    android:padding="@dimen/Event_and_User_Info_padding">
                     <TextView
                         android:layout_weight="1"
                         android:id="@+id/create_event_time"
