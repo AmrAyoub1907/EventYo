@@ -88,7 +88,7 @@
             android:paddingBottom="@dimen/Margin_Padding_12dp"
             android:paddingEnd="@dimen/Margin_Padding_12dp"
             android:background="@drawable/edittext_customshape"
-            android:hint="Username"
+            android:hint="@string/auth_Username_Hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"/>
@@ -101,7 +101,7 @@
             android:paddingBottom="@dimen/Margin_Padding_12dp"
             android:paddingEnd="@dimen/Margin_Padding_12dp"
             android:background="@drawable/edittext_customshape"
-            android:hint="Email"
+            android:hint="@string/auth_Email_Hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"/>
@@ -116,7 +116,7 @@
             android:layout_marginStart="@dimen/Margin_Padding_12dp"
             android:layout_marginEnd="@dimen/Margin_Padding_12dp"
             android:background="@drawable/edittext_customshape"
-            android:hint="Password"
+            android:hint="@string/auth_Password_Hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content">
             <Button
                 android:onClick="cancelcreatingnewAccount"
-                android:hint="Cancel"
+                android:hint="@string/auth_Cancel_Button"
                 android:layout_marginEnd="@dimen/Margin_Padding_12dp"
                 android:id="@+id/cancel_account"
                 android:layout_marginTop="@dimen/Margin_Padding_12dp"
@@ -136,7 +136,7 @@
             <Button
                 android:contentDescription="@string/accessibility_CreateAccount"
                 android:onClick="create_new_account"
-                android:hint="Create"
+                android:hint="@string/auth_Create_Button"
                 android:id="@+id/create_account"
                 android:layout_marginTop="@dimen/Margin_Padding_12dp"
                 android:layout_marginBottom="@dimen/Margin_Padding_12dp"
@@ -160,7 +160,7 @@
             android:paddingBottom="@dimen/Margin_Padding_12dp"
             android:paddingEnd="@dimen/Margin_Padding_12dp"
             android:background="@drawable/edittext_customshape"
-            android:hint="Email"
+            android:hint="@string/auth_Email_Hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"/>
@@ -175,13 +175,13 @@
             android:layout_marginStart="@dimen/Margin_Padding_12dp"
             android:layout_marginEnd="@dimen/Margin_Padding_12dp"
             android:background="@drawable/edittext_customshape"
-            android:hint="Password"
+            android:hint="@string/auth_Password_Hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
             android:contentDescription="@string/accessibility_SignIn"
             android:onClick="signin"
-            android:hint="Sign in"
+            android:hint="@string/auth_SignIn_Button"
             android:id="@+id/btn_email_login"
             android:layout_marginTop="@dimen/Margin_Padding_12dp"
             android:layout_marginBottom="@dimen/Margin_Padding_12dp"

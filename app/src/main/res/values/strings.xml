@@ -97,4 +97,16 @@
     <string name="auth_noAccount_text">*if you don\'t have account</string>
     <string name="auth_CreateAccount_Text">create one</string>
     <string name="Widget_Title_Text">Upcoming Events</string>
+    <string name="auth_Email_Hint">Email</string>
+    <string name="auth_Password_Hint">Password</string>
+    <string name="auth_SignIn_Button">Sign in</string>
+    <string name="auth_Username_Hint">Username</string>
+    <string name="auth_Cancel_Button">Cancel</string>
+    <string name="auth_Create_Button">Create</string>
+    <string name="User_UploadProfilePhoto">Upload Profile Photo</string>
+    <string name="create_event_menu_done">done</string>
+    <string name="MainMenu_Myaccount">My Account</string>
+    <string name="MainMenu_signout">Sign out</string>
+    <string name="MainMenu_Search">Search</string>
+    <string name="SearchWidget_Title">Search</string>
 </resources>

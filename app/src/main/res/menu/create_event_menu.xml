@@ -4,7 +4,7 @@
     <item
         android:orderInCategory="0"
         android:id="@+id/create_event"
-        android:title="Search"
+        android:title="@string/create_event_menu_done"
         android:icon="@drawable/ic_done_24dp"
         app:showAsAction="always" />
 </menu>

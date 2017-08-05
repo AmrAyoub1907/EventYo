@@ -299,7 +299,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:padding="@dimen/Margin_Padding_12dp"
-                                android:text="Upload Profile Photo"
+                                android:text="@string/User_UploadProfilePhoto"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/Info_textSize" />
 
