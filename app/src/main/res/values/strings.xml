@@ -92,4 +92,9 @@
     <string name="accessibility_EditAccountInfo_PickDate">Pick Date</string>
     <string name="RadioButton_Male">Male</string>
     <string name="RadioButton_Female">Female</string>
+    <string name="auth_SigninWith_Text">Sign in With</string>
+    <string name="auth_or_Text">or</string>
+    <string name="auth_noAccount_text">*if you don\'t have account</string>
+    <string name="auth_CreateAccount_Text">create one</string>
+    <string name="Widget_Title_Text">Upcoming Events</string>
 </resources>

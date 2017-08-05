@@ -10,7 +10,7 @@
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign in with"
+        android:text="@string/auth_SigninWith_Text"
         android:gravity="center"
         android:textSize="@dimen/SignInWith_TextSize"
         />
@@ -59,7 +59,7 @@
             android:textColor="@color/black"
             android:layout_weight="1.5"
             android:gravity="center"
-            android:text="or"
+            android:text="@string/auth_or_Text"
             android:textSize="@dimen/OR_TextSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -195,7 +195,7 @@
         android:textSize="@dimen/AppName_TextSize"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal|bottom"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
@@ -207,14 +207,14 @@
         <TextView
 
             android:textSize="@dimen/Info_textSize"
-            android:text="*if you don't have account "
+            android:text="@string/auth_noAccount_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:contentDescription="@string/accessibility_CreateAccount"
-            android:textColor="#0000ad"
-            android:text="create one"
-            android:textSize="24sp"
+            android:textColor="@color/dark_blue"
+            android:text="@string/auth_CreateAccount_Text"
+            android:textSize="@dimen/Auth_Screen_TextSize"
             android:clickable="true"
             android:onClick="create_account_view"
             android:layout_width="wrap_content"

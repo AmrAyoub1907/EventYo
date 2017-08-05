@@ -7,7 +7,7 @@
     android:padding="@dimen/widget_margin">
 
     <TextView
-        android:text="Upcoming Events"
+        android:text="@string/Widget_Title_Text"
         android:textSize="@dimen/Widget_textSize"
         android:textColor="@color/white"
         android:background="@color/primary"

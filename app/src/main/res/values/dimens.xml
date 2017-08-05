@@ -32,6 +32,7 @@
     <dimen name="SignInWith_TextSize">56sp</dimen>
     <dimen name="OR_TextSize">28sp</dimen>
     <dimen name="Save_Event_TextSize">24sp</dimen>
+    <dimen name="Auth_Screen_TextSize">24sp</dimen>
 
 
 
